@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: letter-generator
+    runtime: docker
+    plan: free
+    envVars:
+      - key: PDF_ENGINE
+        value: libreoffice
+      - key: PDF_PROFILE_DEFAULT
+        value: portable
+      - key: PDF_COMPARE_ENABLED
+        value: "0"

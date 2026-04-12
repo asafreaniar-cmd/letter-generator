@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+
+# App data – לא שייך ל-git
+output/
+drafts/
+instance/
+server-data/
+
+# קבצי מסמכים (חוץ מקבצי תבנית)
+*.pdf
+output/*.docx
+instance/**/*.docx
+*.png
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+*.code-workspace

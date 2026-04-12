@@ -1,0 +1,25 @@
+{
+  "name": "מחולל מכתבים",
+  "short_name": "מכתבים",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f7fb",
+  "theme_color": "#003366",
+  "description": "אפליקציית מובייל ליצירת מכתבים רשמיים, שמירת טיוטות וייצוא מסמכים מהשרת.",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

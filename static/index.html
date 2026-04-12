@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#003366" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="מחולל מכתבים" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icon-192.png" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
+  <title>מחולל מכתבים – ועדת הבריאות</title>
+  <style>
+    /* ── Reset & base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+    :root {
+      --blue:       #003366;
+      --blue-mid:   #1a4a8a;
+      --blue-light: #e8f0fb;
+      --accent:     #0057b7;
+      --gold:       #c9993a;
+      --border:     #d0d9e8;
+      --text:       #1a1a2e;
+      --muted:      #6b7a99;
+      --success:    #1e7e34;
+      --danger:     #c0392b;
+      --bg:         #f4f7fb;
+      --white:      #ffffff;
+      --sidebar-w:  270px;
+      --header-h:   60px;
+    }
+    body {
+      font-family: 'Segoe UI', 'Arial Hebrew', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      min-height: 100dvh;
+      overflow: hidden;
+    }
+    .mobile-only { display: none !important; }
+    .install-only { display: none !important; }
+
+    /* ── Top header ───────────────────────────────────── */
+    header {
+      height: var(--header-h);
+      background: var(--blue);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+      z-index: 100;
+      flex-shrink: 0;
+    }
+    header .logo { font-size: 22px; }
+    header h1 { font-size: 17px; font-weight: 600; flex: 1; }
+    header .btn-bar { display: flex; gap: 8px; }
+
+    /* ── Layout ───────────────────────────────────────── */
+    .layout { display: flex; flex: 1; overflow: hidden; min-width: 0; }
+    .drafts-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 18, 42, .42);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 1300;
+    }
+    .drafts-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── Sidebar ──────────────────────────────────────── */
+    aside {
+      width: var(--sidebar-w);
+      background: var(--white);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+    .sidebar-title {
+      padding: 14px 16px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .drafts-close {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+    .drafts-close:hover { background: #eef3fb; color: var(--blue); }
+    .draft-list { flex: 1; overflow-y: auto; padding: 8px 0; }
+    .draft-item {
+      padding: 10px 16px;
+      cursor: pointer;
+      border-bottom: 1px solid #f0f2f5;
+      transition: background .15s;
+      position: relative;
+    }
+    .draft-item:hover { background: var(--blue-light); }
+    .draft-item.active { background: #dce9f8; border-right: 3px solid var(--accent); }
+    .draft-item .draft-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 180px;
+    }
+    .draft-item .draft-subject {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 180px;
+    }
+    .draft-item .draft-del {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      background: none;
+      border: none;
+      color: var(--danger);
+      font-size: 15px;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .draft-item:hover .draft-del { opacity: 1; }
+    .draft-item .draft-del:hover { background: #fde8e8; }
+    .no-drafts {
+      padding: 20px 16px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* ── Main content ─────────────────────────────────── */
+    main {
+      flex: 1;
+      min-width: 0;
+      width: 100%;
+      overflow-y: auto;
+      padding: 24px 28px;
+    }
+    .section-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      width: 100%;
+      overflow: hidden;
+    }
+    .section-card h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--blue-light);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .section-card h2 .icon { font-size: 16px; }
+
+    /* ── Form grid ────────────────────────────────────── */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .form-grid.cols-1 { grid-template-columns: 1fr; }
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field.span2 { grid-column: span 2; }
+    .field label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .field input, .field textarea, .field select {
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text);
+      background: #fafbfd;
+      transition: border-color .15s, box-shadow .15s;
+      direction: rtl;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,87,183,.12);
+      background: #fff;
+    }
+    .field textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.6;
+    }
+    .field input[type="checkbox"] {
+      width: auto;
+      max-width: none;
+      border: none;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+      accent-color: var(--accent);
+    }
+    .field textarea.body-area { min-height: 160px; }
+    .check-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .field small.helper {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── Signer rows ──────────────────────────────────── */
+    .signer-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 8px;
+    }
+    .signer-row input {
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 14px;
+      font-family: inherit;
+      direction: rtl;
+      background: #fafbfd;
+    }
+    .signer-row input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,87,183,.12);
+    }
+
+    /* ── CC rows ──────────────────────────────────────── */
+    .cc-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .cc-row input {
+      flex: 1;
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 14px;
+      font-family: inherit;
+      direction: rtl;
+      background: #fafbfd;
+    }
+    .cc-row input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,87,183,.12);
+    }
+
+    /* ── Buttons ──────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background .15s, transform .1s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-primary   { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #004a9e; }
+    .btn-success   { background: var(--success); color: #fff; }
+    .btn-success:hover { background: #155c27; }
+    .btn-outline   { background: transparent; color: var(--blue); border: 1.5px solid var(--blue); }
+    .btn-outline:hover { background: var(--blue-light); }
+    .btn-ghost     { background: transparent; color: var(--muted); border: 1.5px solid var(--border); }
+    .btn-ghost:hover { background: #f0f2f5; }
+    .btn-secondary { background: #c0392b; color: #fff; }
+    .btn-secondary:hover { background: #a93226; }
+    .btn-danger    { background: transparent; color: var(--danger); border: none; padding: 6px 10px; }
+    .btn-danger:hover { background: #fde8e8; }
+    .btn-add {
+      background: #e8f5e9;
+      color: var(--success);
+      border: 1px dashed #a5d6a7;
+      padding: 6px 14px;
+      font-size: 13px;
+    }
+    .btn-add:hover { background: #c8e6c9; }
+    .btn-sm { padding: 5px 10px; font-size: 12px; }
+
+    /* ── Draft name modal ─────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px;
+      width: min(380px, calc(100vw - 24px));
+      box-shadow: 0 8px 32px rgba(0,0,0,.2);
+    }
+    .modal h3 { font-size: 16px; margin-bottom: 16px; color: var(--blue); }
+    .modal input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 9px 12px;
+      font-size: 14px;
+      direction: rtl;
+      font-family: inherit;
+      margin-bottom: 16px;
+    }
+    .modal input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,87,183,.12);
+    }
+    .modal .btn-row { display: flex; gap: 10px; justify-content: flex-end; }
+
+    /* ── Toast notification ───────────────────────────── */
+    #toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: #333;
+      color: #fff;
+      padding: 11px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0;
+      transition: transform .3s, opacity .3s;
+      z-index: 2000;
+      pointer-events: none;
+      max-width: 360px;
+      text-align: center;
+    }
+    #toast.success { background: var(--success); }
+    #toast.error   { background: var(--danger); }
+    #toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── Loading overlay ──────────────────────────────── */
+    #loading {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.3);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+    }
+    #loading.active { display: flex; }
+    .spinner {
+      width: 48px; height: 48px;
+      border: 5px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Footer action bar ────────────────────────────── */
+    .action-bar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 800px) {
+      .desktop-only { display: none !important; }
+      .mobile-only { display: inline-flex !important; }
+      header {
+        height: auto;
+        padding: calc(10px + env(safe-area-inset-top)) 14px 12px;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      header .logo { font-size: 20px; }
+      header h1 {
+        font-size: 16px;
+        min-width: 0;
+      }
+      .layout { position: relative; }
+      aside {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: min(86vw, 360px);
+        max-width: 360px;
+        z-index: 1400;
+        transform: translateX(100%);
+        transition: transform .24s ease;
+        box-shadow: -16px 0 40px rgba(0,0,0,.18);
+      }
+      .layout.drawer-open aside { transform: translateX(0); }
+      .draft-list { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+      main {
+        padding: 14px 14px 18px;
+        -webkit-overflow-scrolling: touch;
+      }
+      .section-card {
+        padding: 16px 14px;
+        border-radius: 14px;
+        margin-bottom: 12px;
+      }
+      .section-card h2 {
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-grid.cols-3 { grid-template-columns: 1fr; }
+      .field.span2 { grid-column: span 1; }
+      .field input, .field textarea, .field select,
+      .signer-row input, .cc-row input, .modal input {
+        font-size: 16px;
+      }
+      .signer-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .signer-row .btn-sm {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0 !important;
+      }
+      .cc-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .cc-row .btn-sm {
+        width: 100%;
+        justify-content: center;
+      }
+      .modal {
+        width: min(92vw, 380px);
+        padding: 22px 18px;
+      }
+      .modal .btn-row {
+        flex-direction: column-reverse;
+        align-items: stretch;
+      }
+      .modal .btn-row .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .action-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+      }
+      .action-bar .btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+      #currentDraftLabel {
+        grid-column: 1 / -1;
+        margin-right: 0 !important;
+        width: 100%;
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════ HEADER -->
+<header>
+  <span class="logo">🏛️</span>
+  <h1>מחולל מכתבים רשמיים</h1>
+  <button class="btn btn-ghost mobile-only" onclick="toggleDraftsDrawer()">📂 טיוטות</button>
+  <div class="btn-bar">
+    <button class="btn btn-ghost desktop-only" onclick="previewPDF()">👁️ תצוגה מקדימה</button>
+    <button class="btn btn-outline desktop-only install-only" data-action="install-app">⬇️ התקן אפליקציה</button>
+    <button class="btn btn-ghost desktop-only" onclick="newDraft()">📄 מכתב חדש</button>
+    <button class="btn btn-outline desktop-only" onclick="openSaveModal()">💾 שמור טיוטה</button>
+    <button class="btn btn-secondary desktop-only" onclick="generatePDF()">📄 ייצא PDF</button>
+    <button class="btn btn-primary desktop-only" onclick="generateWord()">📝 ייצא Word</button>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════ LAYOUT -->
+<div class="layout">
+
+  <!-- ─── Sidebar: Drafts ─────────────────────────────── -->
+  <aside>
+    <div class="sidebar-title">
+      <span>📂 טיוטות שמורות</span>
+      <button class="drafts-close mobile-only" onclick="closeDraftsDrawer()">סגור</button>
+    </div>
+    <div class="draft-list" id="draftList">
+      <div class="no-drafts">אין טיוטות שמורות עדיין</div>
+    </div>
+  </aside>
+
+  <!-- ─── Main form ───────────────────────────────────── -->
+  <main>
+
+    <!-- Section: Header info -->
+    <div class="section-card">
+      <h2><span class="icon">📋</span> פרטי כותרת</h2>
+      <div class="form-grid cols-3">
+        <div class="field">
+          <label>סימוכין (אופציונלי)</label>
+          <input type="text" id="reference" placeholder="למשל: בריאות/2026/123" />
+        </div>
+        <div class="field">
+          <label>עיר / מקום</label>
+          <input type="text" id="city" value="הכנסת, ירושלים" />
+        </div>
+        <div class="field"><!-- spacer --></div>
+        <div class="field">
+          <label>תאריך עברי</label>
+          <input type="text" id="date_hebrew" placeholder='למשל: ח׳ באדר התשפ"ו' />
+        </div>
+        <div class="field">
+          <label>תאריך לועזי</label>
+          <input type="text" id="date_gregorian" placeholder="למשל: 25 בפברואר 2026" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Recipient -->
+    <div class="section-card">
+      <h2><span class="icon">👤</span> נמען</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label>שורת פתיחה לנמען</label>
+          <input type="text" id="recipient_intro" value="לכבוד"
+                 placeholder='לכבוד / לכל מאן דבעי' />
+        </div>
+        <div class="field"><!-- spacer --></div>
+        <div class="field">
+          <label>שם הנמען (ריק = "לכל מאן דבעי")</label>
+          <input type="text" id="recipient_name" placeholder='למשל: עו"ד יוסי כהן' />
+        </div>
+        <div class="field">
+          <label>תפקיד / תואר הנמען</label>
+          <input type="text" id="recipient_title" placeholder="למשל: מנכ״ל משרד הבריאות" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Letter content -->
+    <div class="section-card">
+      <h2><span class="icon">✉️</span> תוכן המכתב</h2>
+      <div class="form-grid cols-1">
+        <div class="field">
+          <label>פתיח</label>
+          <input type="text" id="greeting" value="שלום רב," />
+        </div>
+        <div class="field">
+          <label>שורת נדון</label>
+          <input type="text" id="subject" placeholder="נושא המכתב..." />
+        </div>
+        <div class="field">
+          <label>גוף המכתב <small style="color:var(--muted)">(שורה ריקה = פסקה חדשה)</small></label>
+          <textarea id="body" class="body-area"
+                    placeholder="הקלד את גוף המכתב כאן...&#10;&#10;כל שורה ריקה תהפוך לפסקה חדשה."></textarea>
+        </div>
+        <div class="field">
+          <label>שורת סיום / בקשה אופרטיבית</label>
+          <input type="text" id="closing" value="בכבוד רב," />
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Signers -->
+    <div class="section-card">
+      <h2><span class="icon">✍️</span> חותמים</h2>
+      <div id="signersContainer"></div>
+      <button class="btn btn-add" onclick="addSigner()">+ הוסף חותם</button>
+    </div>
+
+    <!-- Section: CC -->
+    <div class="section-card">
+      <h2><span class="icon">📋</span> העתק (CC)</h2>
+      <div id="ccContainer"></div>
+      <button class="btn btn-add" onclick="addCC()">+ הוסף שורת העתק</button>
+    </div>
+
+    <!-- Section: Internal note -->
+    <div class="section-card">
+      <h2><span class="icon">🔗</span> הערה פנימית / קישור (אופציונלי)</h2>
+      <div class="form-grid cols-1">
+        <div class="field">
+          <input type="text" id="note"
+                 placeholder="הערה פנימית שתופיע בסוף המסמך בסוגריים מרובעים..." />
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <h2><span class="icon">📄</span> מנוע PDF</h2>
+      <div class="form-grid">
+        <div class="field">
+          <label>פרופיל ייצוא PDF</label>
+          <select id="pdf_profile">
+            <option value="auto">אוטומטי</option>
+            <option value="portable">אפליקציה עצמאית</option>
+            <option value="exact">זהה ל-Word</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>בדיקת עימוד</label>
+          <label class="check-row">
+            <input type="checkbox" id="compare_layout" />
+            <span>השוואת עימוד אוטומטית מול מנוע ייחוס</span>
+          </label>
+          <small class="helper" id="pdfModeHint">
+            פרופיל exact משתמש במנוע Word. פרופיל portable פועל בלי תלות ב-Mac.
+          </small>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+<div class="drafts-backdrop" id="draftsBackdrop" onclick="closeDraftsDrawer()"></div>
+
+<!-- ═══════════════════════════════════════════════════ ACTION BAR -->
+<div class="action-bar">
+  <button class="btn btn-ghost" onclick="previewPDF()">👁️ תצוגה מקדימה</button>
+  <button class="btn btn-primary" onclick="generateWord()">📝 ייצא Word</button>
+  <button class="btn btn-secondary" onclick="generatePDF()">📄 ייצא PDF</button>
+  <button class="btn btn-outline install-only" data-action="install-app">⬇️ התקן</button>
+  <button class="btn btn-outline" onclick="openSaveModal()">💾 שמור טיוטה</button>
+  <button class="btn btn-ghost" onclick="newDraft()">📄 מכתב חדש</button>
+  <span id="currentDraftLabel" style="color:var(--muted);font-size:13px;align-self:center;margin-right:auto;"></span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ SAVE MODAL -->
+<div class="modal-overlay" id="saveModal">
+  <div class="modal">
+    <h3>💾 שמור טיוטה</h3>
+    <input type="text" id="draftNameInput" placeholder="שם הטיוטה..." />
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="closeSaveModal()">ביטול</button>
+      <button class="btn btn-primary" onclick="saveDraft()">שמור</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ LOADING -->
+<div id="loading">
+  <div class="spinner"></div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ TOAST -->
+<div id="toast"></div>
+
+<!-- ═══════════════════════════════════════════════════ SCRIPT -->
+<script>
+  // ── State ────────────────────────────────────────────
+  let currentDraftId = null;
+  let signerCount    = 0;
+  let ccCount        = 0;
+  let appCapabilities = null;
+  let deferredInstallPrompt = null;
+
+  // ── Toast ─────────────────────────────────────────────
+  function toast(msg, type = '') {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.className   = type ? `show ${type}` : 'show';
+    clearTimeout(el._t);
+    el._t = setTimeout(() => { el.className = ''; }, 3200);
+  }
+
+  function showLoading()  { document.getElementById('loading').classList.add('active'); }
+  function hideLoading()  { document.getElementById('loading').classList.remove('active'); }
+
+  function toggleDraftsDrawer(forceOpen) {
+    const layout = document.querySelector('.layout');
+    const backdrop = document.getElementById('draftsBackdrop');
+    const isOpen = layout.classList.contains('drawer-open');
+    const shouldOpen = typeof forceOpen === 'boolean' ? forceOpen : !isOpen;
+    layout.classList.toggle('drawer-open', shouldOpen);
+    backdrop.classList.toggle('active', shouldOpen);
+  }
+
+  function closeDraftsDrawer() {
+    toggleDraftsDrawer(false);
+  }
+
+  // ── Collect form data ─────────────────────────────────
+  function collectData(name) {
+    const v = id => document.getElementById(id)?.value.trim() ?? '';
+
+    // Signers
+    const signers = [];
+    document.querySelectorAll('.signer-row').forEach(row => {
+      const name  = row.querySelector('[data-role="signer-name"]')?.value.trim()  ?? '';
+      const title = row.querySelector('[data-role="signer-title"]')?.value.trim() ?? '';
+      if (name || title) signers.push({ name, title });
+    });
+    if (!signers.length) signers.push({ name: '', title: '' });
+
+    // CC
+    const cc = [];
+    document.querySelectorAll('.cc-row input').forEach(inp => {
+      if (inp.value.trim()) cc.push(inp.value.trim());
+    });
+
+    return {
+      _name:            name || v('subject') || 'טיוטה',
+      reference:        v('reference'),
+      city:             v('city') || 'הכנסת, ירושלים',
+      date_hebrew:      v('date_hebrew'),
+      date_gregorian:   v('date_gregorian'),
+      recipient_intro:  v('recipient_intro') || 'לכבוד',
+      recipient_name:   v('recipient_name'),
+      recipient_title:  v('recipient_title'),
+      greeting:         v('greeting') || 'שלום רב,',
+      subject:          v('subject'),
+      body:             document.getElementById('body')?.value ?? '',
+      closing:          v('closing') || 'בכבוד רב,',
+      signers,
+      cc,
+      note:             v('note'),
+      pdf_profile:      v('pdf_profile') || 'auto',
+      compare_layout:   document.getElementById('compare_layout')?.checked ?? false,
+    };
+  }
+
+  // ── Populate form from data ───────────────────────────
+  function populateForm(data) {
+    const set = (id, val) => {
+      const el = document.getElementById(id);
+      if (el) el.value = val ?? '';
+    };
+    set('reference',       data.reference);
+    set('city',            data.city || 'הכנסת, ירושלים');
+    set('date_hebrew',     data.date_hebrew);
+    set('date_gregorian',  data.date_gregorian);
+    set('recipient_intro', data.recipient_intro || 'לכבוד');
+    set('recipient_name',  data.recipient_name);
+    set('recipient_title', data.recipient_title);
+    set('greeting',        data.greeting || 'שלום רב,');
+    set('subject',         data.subject);
+    set('body',            data.body);
+    set('closing',         data.closing || 'בכבוד רב,');
+    set('note',            data.note);
+    set('pdf_profile',     data.pdf_profile || appCapabilities?.default_profile || 'auto');
+    const compare = document.getElementById('compare_layout');
+    if (compare) compare.checked = !!data.compare_layout;
+
+    // Signers
+    clearSigners();
+    const signers = data.signers?.length ? data.signers : [{ name: '', title: '' }];
+    signers.forEach(s => addSigner(s.name, s.title));
+
+    // CC
+    clearCC();
+    (data.cc || []).forEach(c => addCC(c));
+  }
+
+  // ── Signers ───────────────────────────────────────────
+  function clearSigners() {
+    document.getElementById('signersContainer').innerHTML = '';
+    signerCount = 0;
+  }
+
+  function addSigner(name = '', title = '') {
+    const idx = ++signerCount;
+    const cont = document.getElementById('signersContainer');
+    const row = document.createElement('div');
+    row.className = 'signer-row';
+    row.id = `signer_${idx}`;
+    row.innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <label style="font-size:12px;color:var(--muted)">שם החותם</label>
+        <input type="text" data-role="signer-name"
+               placeholder='למשל: חה"כ יונתן משריקי' value="${_esc(name)}" />
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <label style="font-size:12px;color:var(--muted)">תפקיד</label>
+        <input type="text" data-role="signer-title"
+               placeholder='למשל: יו"ר ועדת הבריאות' value="${_esc(title)}" />
+      </div>
+      <button class="btn btn-danger btn-sm" style="margin-top:18px"
+              onclick="removeSigner(${idx})">✕</button>`;
+    cont.appendChild(row);
+  }
+
+  function removeSigner(idx) {
+    const row = document.getElementById(`signer_${idx}`);
+    if (row) {
+      const all = document.querySelectorAll('.signer-row');
+      if (all.length <= 1) { toast('חייב להיות לפחות חותם אחד', 'error'); return; }
+      row.remove();
+    }
+  }
+
+  // ── CC ────────────────────────────────────────────────
+  function clearCC() {
+    document.getElementById('ccContainer').innerHTML = '';
+    ccCount = 0;
+  }
+
+  function addCC(val = '') {
+    const idx = ++ccCount;
+    const cont = document.getElementById('ccContainer');
+    const row = document.createElement('div');
+    row.className = 'cc-row';
+    row.id = `cc_${idx}`;
+    row.innerHTML = `
+      <input type="text" placeholder='למשל: מר משה בר סימנטוב, מנכ"ל משרד הבריאות'
+             value="${_esc(val)}" />
+      <button class="btn btn-danger btn-sm" onclick="removeCC(${idx})">✕</button>`;
+    cont.appendChild(row);
+  }
+
+  function removeCC(idx) {
+    const row = document.getElementById(`cc_${idx}`);
+    if (row) row.remove();
+  }
+
+  function triggerDownload(url, filename) {
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.rel = 'noopener';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+
+  function openPreview(url) {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
+  function toggleInstallButtons(visible) {
+    document.querySelectorAll('.install-only').forEach(btn => {
+      btn.style.display = visible ? 'inline-flex' : 'none';
+    });
+  }
+
+  // ── Generate & download PDF ───────────────────────────
+  async function generatePDF() {
+    const data = collectData();
+    if (!data.subject.trim()) {
+      toast('נא להזין שורת נדון לפני היצוא', 'error');
+      return;
+    }
+    showLoading();
+    try {
+      const res = await fetch('/api/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || `שגיאת שרת (${res.status})`);
+      }
+      const payload = await res.json();
+      triggerDownload(payload.url, payload.filename);
+      if (payload.comparison?.status === 'completed' && !payload.comparison.identical) {
+        toast(`⚠️ ה-PDF ירד, אבל זוהתה סטיית עימוד לעומת ${payload.comparison.reference_engine}`, 'error');
+      } else {
+        toast(`✅ ה-PDF יוצר בהצלחה (${payload.engine})`, 'success');
+      }
+    } catch (e) {
+      toast(`❌ שגיאה: ${e.message}`, 'error');
+    } finally {
+      hideLoading();
+    }
+  }
+
+  async function previewPDF() {
+    const data = collectData();
+    if (!data.subject.trim()) {
+      toast('נא להזין שורת נדון לפני התצוגה המקדימה', 'error');
+      return;
+    }
+    showLoading();
+    try {
+      const res = await fetch('/api/generate-pdf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || `שגיאת שרת (${res.status})`);
+      }
+      const payload = await res.json();
+      openPreview(payload.preview_url);
+      if (payload.comparison?.status === 'completed' && !payload.comparison.identical) {
+        toast(`👁️ נפתחה תצוגה מקדימה, אבל יש סטיית עימוד מול ${payload.comparison.reference_engine}`, 'error');
+      } else {
+        toast('👁️ נפתחה תצוגה מקדימה', 'success');
+      }
+    } catch (e) {
+      toast(`❌ שגיאה: ${e.message}`, 'error');
+    } finally {
+      hideLoading();
+    }
+  }
+
+  // ── Generate & download Word ──────────────────────────
+  async function generateWord() {
+    const data = collectData();
+    if (!data.subject.trim()) {
+      toast('נא להזין שורת נדון לפני היצוא', 'error');
+      return;
+    }
+    showLoading();
+    try {
+      const res = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || `שגיאת שרת (${res.status})`);
+      }
+      const { url, filename } = await res.json();
+      triggerDownload(url, filename);
+      toast('✅ המכתב יוצר בהצלחה!', 'success');
+    } catch (e) {
+      toast(`❌ שגיאה: ${e.message}`, 'error');
+    } finally {
+      hideLoading();
+    }
+  }
+
+  // ── Save draft ────────────────────────────────────────
+  function openSaveModal() {
+    const subj = document.getElementById('subject')?.value.trim() || '';
+    document.getElementById('draftNameInput').value = subj || 'טיוטה חדשה';
+    document.getElementById('saveModal').classList.add('active');
+    setTimeout(() => document.getElementById('draftNameInput').focus(), 50);
+  }
+  function closeSaveModal() {
+    document.getElementById('saveModal').classList.remove('active');
+  }
+
+  async function saveDraft() {
+    const name = document.getElementById('draftNameInput').value.trim() || 'טיוטה';
+    const data = collectData(name);
+    data._name = name;
+    closeSaveModal();
+    showLoading();
+    try {
+      let res;
+      if (currentDraftId) {
+        res = await fetch(`/api/drafts/${currentDraftId}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        // אם הטיוטה נמחקה (404) – צור חדשה במקום
+        if (res.status === 404) {
+          currentDraftId = null;
+          res = await fetch('/api/drafts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+        }
+      } else {
+        res = await fetch('/api/drafts', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+      }
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.error || `שגיאת שרת (${res.status})`);
+      }
+      const json = await res.json();
+      if (!currentDraftId) currentDraftId = json.id;
+      toast(`💾 הטיוטה "${name}" נשמרה`, 'success');
+      setCurrentDraftLabel(name);
+      loadDraftList();
+    } catch (e) {
+      toast(`❌ שגיאה בשמירה: ${e.message}`, 'error');
+    } finally {
+      hideLoading();
+    }
+  }
+
+  // ── Load drafts list ──────────────────────────────────
+  async function loadDraftList() {
+    try {
+      const res  = await fetch('/api/drafts');
+      const list = await res.json();
+      const cont = document.getElementById('draftList');
+      if (!list.length) {
+        cont.innerHTML = '<div class="no-drafts">אין טיוטות שמורות עדיין</div>';
+        return;
+      }
+      cont.innerHTML = list.map(d => `
+        <div class="draft-item ${d.id === currentDraftId ? 'active' : ''}"
+             id="di_${d.id}" onclick="loadDraft('${d.id}')">
+          <div class="draft-name">${_esc(d.name)}</div>
+          <div class="draft-subject">${_esc(d.subject || '')}</div>
+          <button class="draft-del" title="מחק טיוטה"
+                  onclick="deleteDraft(event,'${d.id}')">✕</button>
+        </div>`).join('');
+    } catch (e) {
+      console.error('loadDraftList:', e);
+    }
+  }
+
+  async function loadCapabilities() {
+    try {
+      const res = await fetch('/api/health');
+      if (!res.ok) return;
+      appCapabilities = await res.json();
+      applyPDFCapabilities();
+    } catch (e) {
+      console.error('loadCapabilities:', e);
+    }
+  }
+
+  function applyPDFCapabilities() {
+    const profile = document.getElementById('pdf_profile');
+    const compare = document.getElementById('compare_layout');
+    const hint = document.getElementById('pdfModeHint');
+    if (!profile || !hint) return;
+
+    const exactAvailable = !!appCapabilities?.profiles?.exact;
+    const portableAvailable = !!appCapabilities?.profiles?.portable;
+    const referenceEngine = appCapabilities?.comparison?.reference_engine;
+    const localWordAvailable = !!appCapabilities?.engines?.local_word;
+    const remoteWordAvailable = !!appCapabilities?.engines?.remote_word;
+
+    const exactOption = profile.querySelector('option[value="exact"]');
+    const portableOption = profile.querySelector('option[value="portable"]');
+    if (exactOption) exactOption.disabled = !exactAvailable;
+    if (portableOption) portableOption.disabled = !portableAvailable;
+
+    if (appCapabilities?.default_profile) {
+      profile.value = appCapabilities.default_profile;
+    }
+
+    if (!exactAvailable && profile.value === 'exact') {
+      profile.value = portableAvailable ? 'portable' : 'auto';
+    }
+
+    if (compare) {
+      compare.disabled = !referenceEngine && !exactAvailable;
+      if (compare.disabled) {
+        compare.checked = false;
+      } else if (!currentDraftId) {
+        compare.checked = !!appCapabilities?.comparison?.enabled_by_default;
+      }
+    }
+
+    if (exactAvailable) {
+      if (localWordAvailable) {
+        hint.textContent = 'פרופיל exact משתמש ב-Microsoft Word על השרת הזה כדי להפיק PDF זהה ל-Word. portable נשאר עצמאי לגמרי בשרת.';
+      } else if (remoteWordAvailable) {
+        hint.textContent = 'פרופיל exact משתמש בשירות Word מרוחק לדיוק עימוד מרבי. portable נשאר עצמאי לגמרי בשרת.';
+      } else {
+        hint.textContent = 'פרופיל exact משתמש במנוע Word לדיוק עימוד מרבי.';
+      }
+      return;
+    }
+
+    if (portableAvailable) {
+      hint.textContent = 'כרגע זמין רק פרופיל portable. כדי לקבל PDF זהה ל-Word צריך להפעיל Microsoft Word על השרת או להגדיר REMOTE_WORD_URL.';
+      return;
+    }
+
+    hint.textContent = 'אין כרגע מנוע PDF זמין על השרת.';
+  }
+
+  async function loadDraft(id) {
+    showLoading();
+    try {
+      const res  = await fetch(`/api/drafts/${id}`);
+      if (!res.ok) throw new Error('לא נמצא');
+      const data = await res.json();
+      populateForm(data);
+      currentDraftId = id;
+      setCurrentDraftLabel(data._name || data.subject || 'טיוטה');
+      // Mark active
+      document.querySelectorAll('.draft-item').forEach(el => el.classList.remove('active'));
+      document.getElementById(`di_${id}`)?.classList.add('active');
+      closeDraftsDrawer();
+      toast(`📂 טיוטה נטענה: ${data._name || ''}`, 'success');
+    } catch (e) {
+      toast(`❌ שגיאה בטעינה: ${e.message}`, 'error');
+    } finally {
+      hideLoading();
+    }
+  }
+
+  async function deleteDraft(event, id) {
+    event.stopPropagation();
+    if (!confirm('האם למחוק טיוטה זו?')) return;
+    try {
+      await fetch(`/api/drafts/${id}`, { method: 'DELETE' });
+      if (currentDraftId === id) {
+        currentDraftId = null;
+        setCurrentDraftLabel('');
+      }
+      toast('🗑️ הטיוטה נמחקה', '');
+      loadDraftList();
+    } catch (e) {
+      toast('❌ שגיאה במחיקה', 'error');
+    }
+  }
+
+  // ── New draft ─────────────────────────────────────────
+  function newDraft() {
+    if (!confirm('פתיחת מכתב חדש תנקה את הטופס הנוכחי. להמשיך?')) return;
+    currentDraftId = null;
+    setCurrentDraftLabel('');
+    document.getElementById('reference').value      = '';
+    document.getElementById('city').value           = 'הכנסת, ירושלים';
+    document.getElementById('date_hebrew').value    = getTodayHebrewDate();
+    document.getElementById('date_gregorian').value = getTodayGregorianDate();
+    document.getElementById('recipient_intro').value = 'לכבוד';
+    document.getElementById('recipient_name').value  = '';
+    document.getElementById('recipient_title').value = '';
+    document.getElementById('greeting').value        = 'שלום רב,';
+    document.getElementById('subject').value         = '';
+    document.getElementById('body').value            = '';
+    document.getElementById('closing').value         = 'בכבוד רב,';
+    document.getElementById('note').value            = '';
+    document.getElementById('pdf_profile').value     = appCapabilities?.default_profile || 'auto';
+    document.getElementById('compare_layout').checked = !!appCapabilities?.comparison?.enabled_by_default;
+    clearSigners();
+    addSigner('חה"כ יונתן משריקי', 'יו"ר ועדת הבריאות');
+    clearCC();
+    document.querySelectorAll('.draft-item').forEach(el => el.classList.remove('active'));
+    closeDraftsDrawer();
+    toast('📄 מכתב חדש', '');
+  }
+
+  // ── Helpers ───────────────────────────────────────────
+  function _esc(s) {
+    return String(s ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function setCurrentDraftLabel(name) {
+    const el = document.getElementById('currentDraftLabel');
+    el.textContent = name ? `✏️ עורך: ${name}` : '';
+  }
+
+  // ── Keyboard shortcuts ────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault();
+      openSaveModal();
+    }
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      generateWord();
+    }
+    if (e.key === 'Escape') closeSaveModal();
+  });
+
+  // Click outside modal to close
+  document.getElementById('saveModal').addEventListener('click', function(e) {
+    if (e.target === this) closeSaveModal();
+  });
+
+  // Enter in modal
+  document.getElementById('draftNameInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') saveDraft();
+  });
+
+  // ── Date helpers ──────────────────────────────────────
+  function _hebrNum(n) {
+    if (n <= 0) return '';
+    const O = ['','א','ב','ג','ד','ה','ו','ז','ח','ט'];
+    const T = ['','י','כ','ל','מ','נ','ס','ע','פ','צ'];
+    const H = ['','ק','ר','ש','ת','תק','תר','תש','תת','תתק'];
+    let s = H[Math.floor(n/100)];
+    const r = n % 100;
+    s += r===15 ? 'טו' : r===16 ? 'טז' : T[Math.floor(r/10)] + O[r%10];
+    return s.length === 1 ? s + "'" : s.slice(0,-1) + '"' + s.slice(-1);
+  }
+  function getTodayHebrewDate() {
+    try {
+      const parts = new Intl.DateTimeFormat('he-u-ca-hebrew',
+        {day:'numeric', month:'long', year:'numeric'}
+      ).formatToParts(new Date());
+      const day = parseInt(parts.find(p=>p.type==='day').value);
+      const mon = parts.find(p=>p.type==='month').value.replace(/^ב/,'').trim();
+      const yr  = parseInt(parts.find(p=>p.type==='year').value.replace(/\D/g,''));
+      return `${_hebrNum(day)} ב${mon} ה${_hebrNum(yr % 1000)}`;
+    } catch(e) { return ''; }
+  }
+
+  function getTodayGregorianDate() {
+    const today = new Date();
+    const months = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני',
+                    'יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+    return `${today.getDate()} ב${months[today.getMonth()]} ${today.getFullYear()}`;
+  }
+
+  // ── Init ──────────────────────────────────────────────
+  (function init() {
+    addSigner('חה"כ יונתן משריקי', 'יו"ר ועדת הבריאות');
+    loadDraftList();
+    loadCapabilities();
+    // Pre-fill today's dates
+    document.getElementById('date_hebrew').value    = getTodayHebrewDate();
+    document.getElementById('date_gregorian').value = getTodayGregorianDate();
+  })();
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(err => {
+        console.error('service worker registration failed', err);
+      });
+    });
+  }
+
+  window.addEventListener('beforeinstallprompt', event => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    toggleInstallButtons(true);
+  });
+
+  window.addEventListener('appinstalled', () => {
+    deferredInstallPrompt = null;
+    toggleInstallButtons(false);
+    toast('✅ האפליקציה הותקנה במסך הבית', 'success');
+  });
+
+  document.querySelectorAll('[data-action="install-app"]').forEach(button => {
+    button.addEventListener('click', async () => {
+      if (!deferredInstallPrompt) {
+        toast('אפשר גם להוסיף למסך הבית דרך תפריט הדפדפן', '');
+        return;
+      }
+      deferredInstallPrompt.prompt();
+      await deferredInstallPrompt.userChoice;
+      deferredInstallPrompt = null;
+      toggleInstallButtons(false);
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 800) closeDraftsDrawer();
+  });
+</script>
+</body>
+</html>
