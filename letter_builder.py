@@ -10,11 +10,12 @@ import copy
 from docx import Document
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
-from template_data import ensure_template
+from template_data import ensure_template, ensure_signature
 
 TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), 'הכנסת.docx')
-ensure_template(TEMPLATE_PATH)
 SIGNATURE_PATH = os.path.join(os.path.dirname(__file__), 'חתימה.png')
+ensure_template(TEMPLATE_PATH)
+ensure_signature(SIGNATURE_PATH)
 FONT_NAME = 'David'
 FONT_SIZE_HTP = '24'   # half-points (= 12pt)
 NUM_SPACERS = 5        # paragraphs to keep from the original for logo spacing
