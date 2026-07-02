@@ -508,6 +508,117 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
         _draw_left(c, date_greg, y)
         step()
 
+    # Calculate vertical spacing (pushed from the date lines down)
+    spacing_val = data.get('body_spacing', 'auto')
+    padding_y = 0.0
+    if spacing_val == 'auto':
+        content_h = 0.0
+        
+        # 1. Recipient block height
+        rec_list = data.get('recipients', [])
+        if not rec_list:
+            r_intro = (data.get('recipient_intro') or 'לכבוד').strip()
+            r_name  = (data.get('recipient_name')  or '').strip()
+            r_title = (data.get('recipient_title') or '').strip()
+            rec_list = [{'intro': r_intro, 'name': r_name, 'title': r_title}]
+            
+        if len(rec_list) == 1:
+            rec = rec_list[0]
+            intro = rec.get('intro', 'לכבוד').strip()
+            name  = rec.get('name', '').strip()
+            title = rec.get('title', '').strip()
+            if name:
+                content_h += LINE_SINGLE + LINE_SINGLE
+                if title:
+                    content_h += LINE_SINGLE
+            else:
+                content_h += LINE_SINGLE
+        else:
+            max_lines = 0
+            for rec in rec_list:
+                lines = 2
+                if rec.get('title', '').strip():
+                    lines = 3
+                if lines > max_lines:
+                    max_lines = lines
+            content_h += max_lines * LINE_SINGLE
+            
+        # 2. Empty line after recipient block (5f. Empty line)
+        content_h += LINE_SINGLE
+        
+        # 3. Greeting (5g. Greeting)
+        greeting = (data.get('greeting') or 'שלום רב,').strip()
+        if greeting:
+            content_h += LINE_SINGLE
+        content_h += LINE_SINGLE  # step() after greeting
+        
+        # 4. Subject line (5i. Subject line)
+        subject = (data.get('subject') or '').strip()
+        if subject:
+            content_h += LINE_SINGLE + LINE_BETWEEN_PARA
+            
+        # 5. Body paragraphs
+        body_text = (data.get('body') or '').strip()
+        if body_text:
+            paras = [p.strip() for p in body_text.split('\n')]
+            for para in paras:
+                if not para:
+                    content_h += LINE_SINGLE
+                    continue
+                lines = _wrap_formatted(para)
+                content_h += len(lines) * LINE_SINGLE + LINE_BETWEEN_PARA
+        else:
+            content_h += LINE_SINGLE
+            
+        # 6. Spacing before closing (5k. Extra blank before closing)
+        content_h += LINE_SINGLE
+        
+        # 7. Closing text (5l. Closing text)
+        closing_text = (data.get('closing') or 'בכבוד רב,').strip()
+        if closing_text:
+            lines = _wrap_formatted(closing_text)
+            content_h += len(lines) * LINE_SINGLE
+        content_h += LINE_SINGLE  # step() after closing
+        
+        # 8. Signers block
+        signers = data.get('signers') or [{'name': '', 'title': ''}]
+        if len(signers) == 1:
+            s = signers[0]
+            name  = (s.get('name')  or '').strip()
+            title = (s.get('title') or '').strip()
+            if name:
+                content_h += LINE_SINGLE + LINE_SINGLE
+            if title:
+                content_h += LINE_SINGLE + LINE_SINGLE
+        else:
+            content_h += LINE_SINGLE * 2 + LINE_SINGLE * 2
+            
+        # 9. CC list
+        cc_list = [item for item in (data.get('cc') or []) if item.strip()]
+        if cc_list:
+            content_h += LINE_SINGLE * 2  # step() before prefix + prefix
+            for item in cc_list:
+                content_h += LINE_SINGLE
+                
+        # 10. Note
+        note_text = (data.get('note') or '').strip()
+        if note_text:
+            content_h += LINE_SINGLE * 2
+            
+        # Available height from current y to bottom margin (110.0 pt)
+        available_h = y - 110.0
+        if content_h < available_h:
+            padding_y = (available_h - content_h) / 2.0
+    else:
+        try:
+            lines_to_add = int(spacing_val)
+            padding_y = lines_to_add * LINE_SINGLE
+        except ValueError:
+            padding_y = 0.0
+            
+    # Apply vertical spacing before drawing the recipients block
+    y -= padding_y
+
     # ── 5e. Recipient block ──────────────────────────────────────────────────
     recipients = data.get('recipients', [])
     if not recipients:
@@ -582,70 +693,6 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
 
     # ── 5j. Body paragraphs ──────────────────────────────────────────────────
     body_text = (data.get('body') or '').strip()
-    
-    # Calculate spacing before body
-    spacing_val = data.get('body_spacing', 'auto')
-    padding_y = 0.0
-    if spacing_val == 'auto':
-        if body_text:
-            content_h = 0.0
-            # 1. Body paragraphs height
-            paras = [p.strip() for p in body_text.split('\n')]
-            for para in paras:
-                if not para:
-                    content_h += LINE_SINGLE
-                    continue
-                lines = _wrap_formatted(para)
-                content_h += len(lines) * LINE_SINGLE + LINE_BETWEEN_PARA
-                
-            # 2. Spacing before closing (1 line) + closing text + step after
-            content_h += LINE_SINGLE
-            closing_text = (data.get('closing') or 'בכבוד רב,').strip()
-            if closing_text:
-                lines = _wrap_formatted(closing_text)
-                content_h += len(lines) * LINE_SINGLE
-            content_h += LINE_SINGLE  # step() after closing
-            
-            # 3. Signers block height
-            signers = data.get('signers') or [{'name': '', 'title': ''}]
-            if len(signers) == 1:
-                s = signers[0]
-                name  = (s.get('name')  or '').strip()
-                title = (s.get('title') or '').strip()
-                if name:
-                    content_h += LINE_SINGLE + LINE_SINGLE
-                if title:
-                    content_h += LINE_SINGLE + LINE_SINGLE
-            else:
-                content_h += LINE_SINGLE * 2 + LINE_SINGLE * 2
-                
-            # 4. Spacing before CC + prefix & list
-            content_h += LINE_SINGLE
-            cc_list = [item for item in (data.get('cc') or []) if item.strip()]
-            if cc_list:
-                content_h += LINE_SINGLE
-                for item in cc_list:
-                    content_h += LINE_SINGLE
-                    
-            # 5. Spacing before note + Note
-            note_text = (data.get('note') or '').strip()
-            if note_text:
-                content_h += LINE_SINGLE * 2
-                
-            # Available height from current y to bottom margin (110.0 pt)
-            available_h = y - 110.0
-            if content_h < available_h:
-                padding_y = (available_h - content_h) / 2.0
-    else:
-        try:
-            lines_to_add = int(spacing_val)
-            padding_y = lines_to_add * LINE_SINGLE
-        except ValueError:
-            padding_y = 0.0
-            
-    # Apply vertical spacing
-    y -= padding_y
-
     if body_text:
         paras = body_text.split('\n')
         for pi, para in enumerate(paras):
