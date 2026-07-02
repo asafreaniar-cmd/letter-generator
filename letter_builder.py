@@ -431,23 +431,7 @@ def build_letter(data: dict, output_path: str) -> str:
 
     # ── 5. Build letter content ──
 
-    # ── 5a. Optional: reference number (סימוכין) ──
-    if data.get('reference', '').strip():
-        add(_make_p(f"סימוכין: {data['reference'].strip()}",
-                    jc='right', line=240, rtl=True))
-
-    # ── 5b. City + Hebrew date ──
-    city = data.get('city', 'הכנסת, ירושלים').strip()
-    date_heb = data.get('date_hebrew', '').strip()
-    city_line = f"{city}, {date_heb}" if date_heb else city
-    add(_make_p(city_line, jc='right', line=240, rtl=True))
-
-    # ── 5c. Gregorian date ──
-    date_greg = data.get('date_gregorian', '').strip()
-    if date_greg:
-        add(_make_p(date_greg, jc='right', line=240, rtl=True))
-
-    # Apply vertical body spacing before drawing the recipients block (pushed down from date lines)
+    # Apply vertical body spacing before drawing any content (pushed down from the header logo)
     spacing_val = data.get('body_spacing', 'auto')
     lines_to_add = 0
     if spacing_val == 'auto':
@@ -472,6 +456,22 @@ def build_letter(data: dict, output_path: str) -> str:
             
     for _ in range(lines_to_add):
         add(_make_p('', jc='both', line=240, rtl=True))
+
+    # ── 5a. Optional: reference number (סימוכין) ──
+    if data.get('reference', '').strip():
+        add(_make_p(f"סימוכין: {data['reference'].strip()}",
+                    jc='right', line=240, rtl=True))
+
+    # ── 5b. City + Hebrew date ──
+    city = data.get('city', 'הכנסת, ירושלים').strip()
+    date_heb = data.get('date_hebrew', '').strip()
+    city_line = f"{city}, {date_heb}" if date_heb else city
+    add(_make_p(city_line, jc='right', line=240, rtl=True))
+
+    # ── 5c. Gregorian date ──
+    date_greg = data.get('date_gregorian', '').strip()
+    if date_greg:
+        add(_make_p(date_greg, jc='right', line=240, rtl=True))
 
     # ── 5e. Recipient block ──
     recipients = data.get('recipients', [])

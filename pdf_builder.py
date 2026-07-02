@@ -486,35 +486,26 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
         nonlocal y
         y -= n
 
-    # ── 5a. Siman (optional) ─────────────────────────────────────────────────
-    # jc='right' for RTL = physical LEFT-aligned in Word
-    reference = (data.get('reference') or '').strip()
-    if reference:
-        _draw_left(c, f'סימוכין: {reference}', y)
-        step()
-
-    # ── 5b. City + Hebrew date ───────────────────────────────────────────────
-    # jc='right' for RTL = physical LEFT-aligned in Word
-    city     = (data.get('city') or 'הכנסת, ירושלים').strip()
-    date_heb = (data.get('date_hebrew') or '').strip()
-    city_line = f'{city}, {date_heb}' if date_heb else city
-    _draw_left(c, city_line, y)
-    step()
-
-    # ── 5c. Gregorian date ───────────────────────────────────────────────────
-    # jc='right' for RTL = physical LEFT-aligned in Word
-    date_greg = (data.get('date_gregorian') or '').strip()
-    if date_greg:
-        _draw_left(c, date_greg, y)
-        step()
-
-    # Calculate vertical spacing (pushed from the date lines down)
+    # Calculate vertical spacing (pushed from the header logo down)
     spacing_val = data.get('body_spacing', 'auto')
     padding_y = 0.0
     if spacing_val == 'auto':
         content_h = 0.0
         
-        # 1. Recipient block height
+        # 1. Siman (optional)
+        reference = (data.get('reference') or '').strip()
+        if reference:
+            content_h += LINE_SINGLE
+            
+        # 2. City + Hebrew date
+        content_h += LINE_SINGLE
+        
+        # 3. Gregorian date
+        date_greg = (data.get('date_gregorian') or '').strip()
+        if date_greg:
+            content_h += LINE_SINGLE
+            
+        # 4. Recipient block height
         rec_list = data.get('recipients', [])
         if not rec_list:
             r_intro = (data.get('recipient_intro') or 'לכבוד').strip()
@@ -543,21 +534,21 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
                     max_lines = lines
             content_h += max_lines * LINE_SINGLE
             
-        # 2. Empty line after recipient block (5f. Empty line)
+        # 5. Empty line after recipient block (5f. Empty line)
         content_h += LINE_SINGLE
         
-        # 3. Greeting (5g. Greeting)
+        # 6. Greeting (5g. Greeting)
         greeting = (data.get('greeting') or 'שלום רב,').strip()
         if greeting:
             content_h += LINE_SINGLE
         content_h += LINE_SINGLE  # step() after greeting
         
-        # 4. Subject line (5i. Subject line)
+        # 7. Subject line (5i. Subject line)
         subject = (data.get('subject') or '').strip()
         if subject:
             content_h += LINE_SINGLE + LINE_BETWEEN_PARA
             
-        # 5. Body paragraphs
+        # 8. Body paragraphs
         body_text = (data.get('body') or '').strip()
         if body_text:
             paras = [p.strip() for p in body_text.split('\n')]
@@ -570,17 +561,17 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
         else:
             content_h += LINE_SINGLE
             
-        # 6. Spacing before closing (5k. Extra blank before closing)
+        # 9. Spacing before closing (5k. Extra blank before closing)
         content_h += LINE_SINGLE
         
-        # 7. Closing text (5l. Closing text)
+        # 10. Closing text (5l. Closing text)
         closing_text = (data.get('closing') or 'בכבוד רב,').strip()
         if closing_text:
             lines = _wrap_formatted(closing_text)
             content_h += len(lines) * LINE_SINGLE
         content_h += LINE_SINGLE  # step() after closing
         
-        # 8. Signers block
+        # 11. Signers block
         signers = data.get('signers') or [{'name': '', 'title': ''}]
         if len(signers) == 1:
             s = signers[0]
@@ -593,20 +584,20 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
         else:
             content_h += LINE_SINGLE * 2 + LINE_SINGLE * 2
             
-        # 9. CC list
+        # 12. CC list
         cc_list = [item for item in (data.get('cc') or []) if item.strip()]
         if cc_list:
             content_h += LINE_SINGLE * 2  # step() before prefix + prefix
             for item in cc_list:
                 content_h += LINE_SINGLE
                 
-        # 10. Note
+        # 13. Note
         note_text = (data.get('note') or '').strip()
         if note_text:
             content_h += LINE_SINGLE * 2
             
-        # Available height from current y to bottom margin (110.0 pt)
-        available_h = y - 110.0
+        # Available height from BODY_START_Y (660.7) to bottom margin (110.0 pt)
+        available_h = BODY_START_Y - 110.0
         if content_h < available_h:
             padding_y = (available_h - content_h) / 2.0
     else:
@@ -616,8 +607,32 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
         except ValueError:
             padding_y = 0.0
             
-    # Apply vertical spacing before drawing the recipients block
+    # Apply vertical spacing
     y -= padding_y
+
+    # ── 5a. Siman (optional) ─────────────────────────────────────────────────
+    # jc='right' for RTL = physical LEFT-aligned in Word
+    reference = (data.get('reference') or '').strip()
+    if reference:
+        _draw_left(c, f'סימוכין: {reference}', y)
+        step()
+
+    # ── 5b. City + Hebrew date ───────────────────────────────────────────────
+    # jc='right' for RTL = physical LEFT-aligned in Word
+    city     = (data.get('city') or 'הכנסת, ירושלים').strip()
+    date_heb = (data.get('date_hebrew') or '').strip()
+    city_line = f'{city}, {date_heb}' if date_heb else city
+    _draw_left(c, city_line, y)
+    step()
+
+    # ── 5c. Gregorian date ───────────────────────────────────────────────────
+    # jc='right' for RTL = physical LEFT-aligned in Word
+    date_greg = (data.get('date_gregorian') or '').strip()
+    if date_greg:
+        _draw_left(c, date_greg, y)
+        step()
+
+
 
     # ── 5e. Recipient block ──────────────────────────────────────────────────
     recipients = data.get('recipients', [])
