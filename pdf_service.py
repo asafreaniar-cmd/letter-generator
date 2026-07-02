@@ -37,7 +37,7 @@ except ImportError:  # pragma: no cover - handled at runtime
 
 DOCX_MIMETYPE = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 PDF_MIMETYPE = 'application/pdf'
-SUPPORTED_ENGINES = ('local_word', 'remote_word', 'gotenberg', 'libreoffice')
+SUPPORTED_ENGINES = ('local_word', 'remote_word', 'gotenberg', 'libreoffice', 'reportlab')
 SUPPORTED_PROFILES = ('auto', 'portable', 'exact')
 _LOCAL_WORD_LOCK = threading.Lock()
 
@@ -123,13 +123,9 @@ def _windows_word_installed() -> bool:
 
 
 def _local_word_available() -> bool:
-    if docx2pdf_convert is None:
-        return False
-
-    system = platform.system()
-    if system == 'Darwin':
+    if platform.system() == 'Darwin':
         return os.path.exists('/Applications/Microsoft Word.app')
-    if system == 'Windows':
+    elif platform.system() == 'Windows':
         return _windows_word_installed()
     return False
 
@@ -169,8 +165,9 @@ def get_pdf_capabilities() -> dict:
         'remote_word': _remote_word_available(),
         'gotenberg': _gotenberg_available(),
         'libreoffice': _libreoffice_available(),
+        'reportlab': _engine_is_available('reportlab'),
     }
-    portable_available = engines['gotenberg'] or engines['libreoffice']
+    portable_available = engines['gotenberg'] or engines['libreoffice'] or engines['reportlab']
     return {
         'configured_engine': _normalize_engine(os.environ.get('PDF_ENGINE', 'auto')),
         'default_profile': _default_profile(),
@@ -178,7 +175,7 @@ def get_pdf_capabilities() -> dict:
         'profiles': {
             'auto': any(engines.values()),
             'portable': portable_available,
-            'exact': engines['local_word'] or engines['remote_word'],
+            'exact': engines['local_word'] or engines['remote_word'] or engines['reportlab'],
         },
         'comparison': {
             'enabled_by_default': _env_bool('PDF_COMPARE_ENABLED', False),
@@ -194,9 +191,9 @@ def _engine_order(requested_profile: str, explicit_engine: Optional[str] = None)
         return [_normalize_engine(explicit_engine)]
 
     configured_engine = _normalize_engine(os.environ.get('PDF_ENGINE', 'auto'))
-    portable_engines = ['gotenberg', 'libreoffice']
-    exact_engines = ['local_word', 'remote_word']
-    all_engines = ['local_word', 'remote_word', 'gotenberg', 'libreoffice']
+    portable_engines = ['reportlab', 'gotenberg', 'libreoffice']
+    exact_engines = ['reportlab', 'local_word', 'remote_word']
+    all_engines = ['reportlab', 'local_word', 'remote_word', 'gotenberg', 'libreoffice']
 
     if requested_profile == 'exact':
         if configured_engine in exact_engines:
@@ -211,7 +208,7 @@ def _engine_order(requested_profile: str, explicit_engine: Optional[str] = None)
     if configured_engine in all_engines:
         return [configured_engine] + [engine for engine in all_engines if engine != configured_engine]
 
-    if _local_word_available() or _remote_word_available():
+    if _local_word_available() or _remote_word_available() or _engine_is_available('reportlab'):
         return all_engines
     return portable_engines
 
@@ -482,7 +479,16 @@ def _convert_with_remote_word(docx_path: str, pdf_path: str):
     _handle_remote_word_response(response, pdf_path, headers, timeout)
 
 
-def _convert_with_engine(engine: str, docx_path: str, pdf_path: str):
+def _convert_with_engine(engine: str, docx_path: str, pdf_path: str, data: Optional[dict] = None):
+    if engine == 'reportlab':
+        if not data:
+            raise PDFServiceError('מנוע reportlab דורש את נתוני המכתב (data) לצורך הפקה.', status_code=400)
+        try:
+            from pdf_builder import build_letter_pdf
+            build_letter_pdf(data, pdf_path)
+        except Exception as exc:
+            raise PDFServiceError(f'שגיאה בהפקת PDF באמצעות reportlab: {exc}', status_code=500) from exc
+        return
     if engine == 'gotenberg':
         _convert_with_gotenberg(docx_path, pdf_path)
         return
@@ -499,6 +505,13 @@ def _convert_with_engine(engine: str, docx_path: str, pdf_path: str):
 
 
 def _engine_is_available(engine: str) -> bool:
+    if engine == 'reportlab':
+        try:
+            import reportlab
+            import bidi
+            return True
+        except ImportError:
+            return False
     if engine == 'remote_word':
         return _remote_word_available()
     if engine == 'local_word':
@@ -524,7 +537,7 @@ def _reference_engine_for_comparison(primary_engine: str, requested_profile: str
     return None
 
 
-def _run_comparison(docx_path: str, pdf_path: str, primary_engine: str, requested_profile: str) -> dict:
+def _run_comparison(docx_path: str, pdf_path: str, primary_engine: str, requested_profile: str, data: Optional[dict] = None) -> dict:
     reference_engine = _reference_engine_for_comparison(primary_engine, requested_profile)
     if not reference_engine:
         return {
@@ -552,7 +565,7 @@ def _run_comparison(docx_path: str, pdf_path: str, primary_engine: str, requeste
     try:
         with tempfile.TemporaryDirectory(prefix='letter-pdf-compare-') as tmpdir:
             reference_path = os.path.join(tmpdir, 'reference.pdf')
-            _convert_with_engine(reference_engine, docx_path, reference_path)
+            _convert_with_engine(reference_engine, docx_path, reference_path, data=data)
             comparison = compare_pdfs(
                 candidate_path=pdf_path,
                 reference_path=reference_path,
@@ -580,15 +593,16 @@ def convert_docx_to_pdf(
     profile: Optional[str] = None,
     compare_layout: Optional[bool] = None,
     engine: Optional[str] = None,
+    data: Optional[dict] = None,
 ) -> PDFConversionResult:
     requested_profile = _normalize_profile(profile)
     explicit_engine = _normalize_engine(engine)
     if explicit_engine == 'auto':
         explicit_engine = None
 
-    if requested_profile == 'exact' and not (_local_word_available() or _remote_word_available()) and not explicit_engine:
+    if requested_profile == 'exact' and not (_local_word_available() or _remote_word_available() or _engine_is_available('reportlab')) and not explicit_engine:
         raise PDFServiceError(
-            'נדרש מנוע Word כדי להפיק PDF זהה ל-Word. הפעל Microsoft Word על השרת או הגדר REMOTE_WORD_URL.',
+            'נדרש מנוע Word או מנוע reportlab כדי להפיק PDF זהה ל-Word. הפעל Microsoft Word על השרת או הגדר REMOTE_WORD_URL או התקן reportlab.',
             status_code=503,
         )
 
@@ -601,7 +615,7 @@ def convert_docx_to_pdf(
             errors.append(f'{candidate_engine}: לא זמין')
             continue
         try:
-            _convert_with_engine(candidate_engine, docx_path, pdf_path)
+            _convert_with_engine(candidate_engine, docx_path, pdf_path, data=data)
             chosen_engine = candidate_engine
             break
         except PDFServiceError as exc:
@@ -616,7 +630,7 @@ def convert_docx_to_pdf(
     should_compare = compare_layout if compare_layout is not None else _env_bool('PDF_COMPARE_ENABLED', False)
     comparison = None
     if should_compare:
-        comparison = _run_comparison(docx_path, pdf_path, chosen_engine, requested_profile)
+        comparison = _run_comparison(docx_path, pdf_path, chosen_engine, requested_profile, data=data)
 
     return PDFConversionResult(
         engine=chosen_engine,

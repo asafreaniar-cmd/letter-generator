@@ -7,10 +7,36 @@ letter_builder.py
 
 import os
 import copy
+import re
 from docx import Document
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 from template_data import ensure_template, ensure_signature
+
+def parse_formatting(text):
+    if not text:
+        return []
+    pattern = re.compile(
+        r'(?P<bold_under>(\*\*__.*?__\*\*)|(__\*\*.*?\*\*__))|(?P<bold>\*\*.*?\*\*)|(?P<under>__.*?__)'
+    )
+    runs = []
+    last_idx = 0
+    for match in pattern.finditer(text):
+        start, end = match.span()
+        if start > last_idx:
+            runs.append({'text': text[last_idx:start], 'bold': False, 'underline': False})
+        
+        matched_text = match.group()
+        if match.group('bold_under'):
+            runs.append({'text': matched_text[4:-4], 'bold': True, 'underline': True})
+        elif match.group('bold'):
+            runs.append({'text': matched_text[2:-2], 'bold': True, 'underline': False})
+        elif match.group('under'):
+            runs.append({'text': matched_text[2:-2], 'bold': False, 'underline': True})
+        last_idx = end
+    if last_idx < len(text):
+        runs.append({'text': text[last_idx:], 'bold': False, 'underline': False})
+    return runs
 
 TEMPLATE_PATH = os.path.join(os.path.dirname(__file__), 'הכנסת.docx')
 SIGNATURE_PATH = os.path.join(os.path.dirname(__file__), 'חתימה.png')
@@ -120,7 +146,9 @@ def _make_p(text='', jc=None, line=240, bold=False, underline=False, rtl=True,
     p.append(_make_pPr(jc=jc, line=line, bold=bold, underline=underline, rtl=rtl,
                        ind_left=ind_left, ind_right=ind_right, ind_first=ind_first))
     if text:
-        p.append(_make_run(text, bold=bold, underline=underline, rtl=rtl))
+        runs = parse_formatting(text)
+        for run in runs:
+            p.append(_make_run(run['text'], bold=bold or run['bold'], underline=underline or run['underline'], rtl=rtl))
     if extra_runs:
         for run_kwargs in extra_runs:
             p.append(_make_run(**run_kwargs))
@@ -200,6 +228,78 @@ def _make_signature_paragraph(doc):
     paragraph = _make_p('', jc=None, line=240, rtl=True)
     _append_signature_to_paragraph(doc, paragraph)
     return paragraph
+
+
+# ──────────────────────────────────────────────────────────────────
+#  Table helper (for multiple recipients)
+# ──────────────────────────────────────────────────────────────────
+
+def _make_recipients_table(recipients):
+    """
+    Build a <w:tbl> element for multiple recipients, laid out in a row,
+    right-to-left (first recipient on the right, last on the left).
+    Each recipient dict: { 'intro': str, 'name': str, 'title': str }
+    """
+    from docx.oxml import OxmlElement
+    tbl = OxmlElement('w:tbl')
+
+    # Table properties
+    tblPr = OxmlElement('w:tblPr')
+    tblStyle = OxmlElement('w:tblStyle')
+    tblStyle.set(qn('w:val'), 'TableGrid')
+    tblPr.append(tblStyle)
+    tblW = OxmlElement('w:tblW')
+    tblW.set(qn('w:w'), '0')
+    tblW.set(qn('w:type'), 'auto')
+    tblPr.append(tblW)
+    # No borders
+    tblBorders = OxmlElement('w:tblBorders')
+    for side in ('top', 'left', 'bottom', 'right', 'insideH', 'insideV'):
+        b = OxmlElement(f'w:{side}')
+        b.set(qn('w:val'), 'none')
+        tblBorders.append(b)
+    tblPr.append(tblBorders)
+    # RTL table
+    bidiVisual = OxmlElement('w:bidiVisual')
+    tblPr.append(bidiVisual)
+    tbl.append(tblPr)
+
+    # Grid columns – one per recipient (fixed width of 2160 dxa)
+    tblGrid = OxmlElement('w:tblGrid')
+    col_width = '2160'
+    for _ in recipients:
+        gridCol = OxmlElement('w:gridCol')
+        gridCol.set(qn('w:w'), col_width)
+        tblGrid.append(gridCol)
+    tbl.append(tblGrid)
+
+    # Single row of recipients (intro + name + title stacked per cell)
+    tr = OxmlElement('w:tr')
+    for rec in recipients:
+        tc = OxmlElement('w:tc')
+        tcPr = OxmlElement('w:tcPr')
+        tcW = OxmlElement('w:tcW')
+        tcW.set(qn('w:w'), col_width)
+        tcW.set(qn('w:type'), 'dxa')
+        tcPr.append(tcW)
+        tc.append(tcPr)
+
+        intro = rec.get('intro', 'לכבוד').strip()
+        name  = rec.get('name', '').strip()
+        title = rec.get('title', '').strip()
+
+        # Recipient intro paragraph
+        if name:
+            tc.append(_make_p(intro, jc='both', line=240, rtl=True))
+            tc.append(_make_p(name, jc='both', line=240, rtl=True))
+            if title:
+                tc.append(_make_p(title, jc='both', line=240, underline=True, rtl=True))
+        else:
+            tc.append(_make_p(intro, jc='both', line=240, underline=True, rtl=True))
+        
+        tr.append(tc)
+    tbl.append(tr)
+    return tbl
 
 
 # ──────────────────────────────────────────────────────────────────
@@ -348,19 +448,27 @@ def build_letter(data: dict, output_path: str) -> str:
         add(_make_p(date_greg, jc='right', line=240, rtl=True))
 
     # ── 5e. Recipient block ──
-    recipient_intro = data.get('recipient_intro', 'לכבוד').strip()
-    recipient_name  = data.get('recipient_name', '').strip()
-    recipient_title = data.get('recipient_title', '').strip()
+    recipients = data.get('recipients', [])
+    if not recipients:
+        recipient_intro = data.get('recipient_intro', 'לכבוד').strip()
+        recipient_name  = data.get('recipient_name', '').strip()
+        recipient_title = data.get('recipient_title', '').strip()
+        recipients = [{'intro': recipient_intro, 'name': recipient_name, 'title': recipient_title}]
 
-    if recipient_name:
-        # "לכבוד" on one line, then name, then title
-        add(_make_p(recipient_intro, jc='both', line=240, rtl=True))
-        add(_make_p(recipient_name, jc='both', line=240, rtl=True))
-        if recipient_title:
-            add(_make_p(recipient_title, jc='both', line=240, underline=True, rtl=True))
+    if len(recipients) == 1:
+        rec = recipients[0]
+        intro = rec.get('intro', 'לכבוד').strip()
+        name  = rec.get('name', '').strip()
+        title = rec.get('title', '').strip()
+        if name:
+            add(_make_p(intro, jc='both', line=240, rtl=True))
+            add(_make_p(name, jc='both', line=240, rtl=True))
+            if title:
+                add(_make_p(title, jc='both', line=240, underline=True, rtl=True))
+        else:
+            add(_make_p(intro, jc='both', line=240, underline=True, rtl=True))
     else:
-        # "לכל מאן דבעי" style – one underlined line
-        add(_make_p(recipient_intro, jc='both', line=240, underline=True, rtl=True))
+        add(_make_recipients_table(recipients))
 
     # ── 5f. Empty line ──
     add(_make_p('', jc='both', line=240, rtl=True))
@@ -430,11 +538,11 @@ def build_letter(data: dict, output_path: str) -> str:
         first = True
         for cc_item in cc_list:
             if first:
-                add(_make_p(f"העתק:  {cc_item.strip()}", jc='both', line=240, rtl=True))
+                add(_make_p(f"העתק: {cc_item.strip()}", jc='both', line=240, rtl=True))
                 first = False
             else:
                 # Each subsequent CC item on its own line, indented to align under first item's text
-                add(_make_p(f"             {cc_item.strip()}", jc='both', line=240, rtl=True))
+                add(_make_p(f"            {cc_item.strip()}", jc='both', line=240, rtl=True))
 
     # ── 5p. Internal note ──
     note = data.get('note', '').strip()

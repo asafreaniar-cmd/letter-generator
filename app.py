@@ -14,6 +14,15 @@ import uuid
 from datetime import datetime
 from urllib.parse import quote
 
+# ── load env ───────────────────────────────────────────────────────────────────
+from pathlib import Path
+env_file = Path(__file__).parent / ".env"
+if env_file.exists():
+    for line in env_file.read_text(encoding="utf-8").splitlines():
+        if "=" in line and not line.startswith("#"):
+            k, v = line.split("=", 1)
+            os.environ[k.strip()] = v.strip()
+
 from flask import Flask, abort, jsonify, request, send_file, send_from_directory
 
 from letter_builder import build_letter
@@ -57,17 +66,17 @@ def _bool_from_request(value, default: bool = False) -> bool:
 
 @app.route('/')
 def index():
-    return send_from_directory(STATIC_DIR, 'index.html')
+    return app.send_static_file('index.html')
 
 
 @app.route('/manifest.webmanifest')
 def manifest():
-    return send_from_directory(STATIC_DIR, 'manifest.webmanifest')
+    return app.send_static_file('manifest.webmanifest')
 
 
 @app.route('/sw.js')
 def service_worker():
-    return send_from_directory(STATIC_DIR, 'sw.js')
+    return app.send_static_file('sw.js')
 
 
 @app.route('/api/health')
@@ -131,6 +140,7 @@ def generate_pdf():
             profile=requested_profile,
             compare_layout=compare_layout,
             engine=explicit_engine,
+            data=data,
         )
     except PDFServiceError as exc:
         app.logger.exception('שגיאה בהמרת PDF')
@@ -214,6 +224,97 @@ def delete_draft(draft_id):
     if not STORAGE.delete_draft(draft_id):
         abort(404)
     return jsonify({'deleted': draft_id})
+
+
+# ── Google Drive export ──────────────────────────────────────────────────────
+# In-memory store for DOCX files waiting to be uploaded after OAuth completes
+_gdrive_pending: dict[str, dict] = {}
+
+
+def _gdrive_redirect_uri():
+    return request.url_root.rstrip('/') + '/api/google-auth/callback'
+
+
+@app.route('/api/export-to-drive', methods=['POST'])
+def export_to_drive():
+    try:
+        import gdrive_service as gd
+    except ImportError:
+        return jsonify({'error': 'חבילות Google Drive לא מותקנות. הרץ: pip install google-api-python-client google-auth-oauthlib'}), 500
+
+    if not gd.has_client_secrets():
+        return jsonify({'error': 'setup_required',
+                        'message': 'קובץ credentials.json חסר — ראה הוראות הגדרה'}), 400
+
+    data = request.get_json(force=True)
+    if not data:
+        return jsonify({'error': 'נתונים חסרים'}), 400
+
+    # Generate DOCX for Drive upload
+    safe_subject = _safe_subject(data.get('subject', ''))
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    filename = f'{safe_subject}_{timestamp}.docx'
+    output_path = STORAGE.document_path(filename)
+    try:
+        build_letter(data, output_path)
+    except Exception as exc:
+        return jsonify({'error': str(exc)}), 500
+
+    if not gd.has_valid_token():
+        pending_id = str(uuid.uuid4())
+        _gdrive_pending[pending_id] = {'path': output_path, 'filename': filename}
+        auth_url = gd.get_auth_url(_gdrive_redirect_uri())
+        return jsonify({'needs_auth': True, 'auth_url': auth_url, 'pending_id': pending_id})
+
+    try:
+        url = gd.upload_file(output_path, filename)
+        return jsonify({'url': url, 'filename': filename})
+    except Exception as exc:
+        return jsonify({'error': str(exc)}), 500
+
+
+@app.route('/api/google-auth/callback')
+def google_auth_callback():
+    try:
+        import gdrive_service as gd
+        code = request.args.get('code', '')
+        state = request.args.get('state', '')
+        if not code:
+            return '<script>window.close();</script><p>שגיאה: לא התקבל קוד אימות</p>', 400
+        gd.exchange_code(code, state, _gdrive_redirect_uri())
+    except Exception as exc:
+        return f'<script>window.close();</script><p>שגיאה: {exc}</p>', 500
+
+    return '''<!DOCTYPE html>
+<html dir="rtl"><head><meta charset="utf-8">
+<title>אימות Google הושלם</title>
+<style>body{font-family:Arial,sans-serif;text-align:center;padding:60px;direction:rtl}
+h2{color:#1a73e8}p{color:#555}</style></head><body>
+<h2>✅ חיבור לגוגל דרייב הושלם!</h2>
+<p>חזור לחלון המכתב ולחץ שוב על "ייצא לגוגל דרייב"</p>
+<script>
+  if(window.opener){window.opener.postMessage({google_auth:'done'},'*');}
+  setTimeout(()=>window.close(),2000);
+</script></body></html>'''
+
+
+@app.route('/api/export-to-drive/pending/<pending_id>', methods=['POST'])
+def export_pending(pending_id):
+    try:
+        import gdrive_service as gd
+    except ImportError:
+        return jsonify({'error': 'חבילות Google Drive לא מותקנות'}), 500
+
+    item = _gdrive_pending.pop(pending_id, None)
+    if not item:
+        return jsonify({'error': 'קובץ ממתין לא נמצא — נסה שוב'}), 404
+
+    try:
+        url = gd.upload_file(item['path'], item['filename'])
+        return jsonify({'url': url, 'filename': item['filename']})
+    except Exception as exc:
+        return jsonify({'error': str(exc)}), 500
+# ─────────────────────────────────────────────────────────────────────────────
 
 
 if __name__ == '__main__':

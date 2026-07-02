@@ -4,8 +4,8 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     HOST=0.0.0.0 \
     PORT=8080 \
-    PDF_ENGINE=libreoffice \
-    PDF_PROFILE_DEFAULT=portable
+    PDF_ENGINE=reportlab \
+    PDF_PROFILE_DEFAULT=exact
 
 WORKDIR /app
 

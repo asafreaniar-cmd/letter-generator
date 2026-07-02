@@ -1,0 +1,22 @@
+FROM gotenberg/gotenberg:8
+
+USER root
+
+# ── Hebrew fonts: Culmus collection (includes David CLM) ──────────
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        fonts-culmus \
+        fonts-dejavu \
+        fontconfig \
+    && rm -rf /var/lib/apt/lists/*
+
+# ── Custom fonts directory (user can add David.ttf etc.) ──────────
+COPY fonts/ /usr/local/share/fonts/custom/
+
+# ── Fontconfig: map "David" → "David CLM" if original not present ─
+COPY fonts-fallback.conf /etc/fonts/conf.d/99-hebrew-fallback.conf
+
+# ── Rebuild font cache ────────────────────────────────────────────
+RUN fc-cache -f -v
+
+USER gotenberg

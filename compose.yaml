@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      context: .
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8080
+      PDF_ENGINE: gotenberg
+      PDF_PROFILE_DEFAULT: portable
+      GOTENBERG_URL: http://gotenberg:3000
+      STORAGE_ROOT: /data
+      PDF_COMPARE_ENABLED: 0
+      PDF_COMPARE_REFERENCE_ENGINE: ""
+      REMOTE_WORD_URL: ""
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server-data:/data
+    depends_on:
+      - gotenberg
+
+  gotenberg:
+    build:
+      context: .
+      dockerfile: Dockerfile.gotenberg
+    command:
+      - gotenberg
+      - --api-port=3000
+      - --libreoffice-auto-start
+    restart: unless-stopped

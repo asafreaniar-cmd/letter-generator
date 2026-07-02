@@ -302,6 +302,31 @@
       box-shadow: 0 0 0 3px rgba(0,87,183,.12);
     }
 
+    /* ── Recipient rows ───────────────────────────────── */
+    .recipient-row {
+      display: grid;
+      grid-template-columns: 100px 1fr 1fr auto;
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 8px;
+    }
+    .recipient-row input {
+      width: 100%;
+      max-width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 14px;
+      font-family: inherit;
+      direction: rtl;
+      background: #fafbfd;
+    }
+    .recipient-row input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,87,183,.12);
+    }
+
     /* ── Buttons ──────────────────────────────────────── */
     .btn {
       display: inline-flex;
@@ -330,6 +355,9 @@
     .btn-secondary:hover { background: #a93226; }
     .btn-danger    { background: transparent; color: var(--danger); border: none; padding: 6px 10px; }
     .btn-danger:hover { background: #fde8e8; }
+    .btn-gdrive    { background: #1a73e8; color: #fff; }
+    .btn-gdrive:hover { background: #1558b0; }
+    .btn-gdrive:disabled { opacity: 0.6; cursor: default; }
     .btn-add {
       background: #e8f5e9;
       color: var(--success);
@@ -482,14 +510,14 @@
       .form-grid.cols-3 { grid-template-columns: 1fr; }
       .field.span2 { grid-column: span 1; }
       .field input, .field textarea, .field select,
-      .signer-row input, .cc-row input, .modal input {
+      .signer-row input, .recipient-row input, .cc-row input, .modal input {
         font-size: 16px;
       }
-      .signer-row {
+      .signer-row, .recipient-row {
         grid-template-columns: 1fr;
         gap: 8px;
       }
-      .signer-row .btn-sm {
+      .signer-row .btn-sm, .recipient-row .btn-sm {
         width: 100%;
         justify-content: center;
         margin-top: 0 !important;
@@ -550,6 +578,7 @@
     <button class="btn btn-outline desktop-only" onclick="openSaveModal()">💾 שמור טיוטה</button>
     <button class="btn btn-secondary desktop-only" onclick="generatePDF()">📄 ייצא PDF</button>
     <button class="btn btn-primary desktop-only" onclick="generateWord()">📝 ייצא Word</button>
+    <button class="btn btn-gdrive desktop-only" id="btn-gdrive-header" onclick="exportToDrive()">📂 ייצא לגוגל דרייב</button>
   </div>
 </header>
 
@@ -596,23 +625,9 @@
 
     <!-- Section: Recipient -->
     <div class="section-card">
-      <h2><span class="icon">👤</span> נמען</h2>
-      <div class="form-grid">
-        <div class="field">
-          <label>שורת פתיחה לנמען</label>
-          <input type="text" id="recipient_intro" value="לכבוד"
-                 placeholder='לכבוד / לכל מאן דבעי' />
-        </div>
-        <div class="field"><!-- spacer --></div>
-        <div class="field">
-          <label>שם הנמען (ריק = "לכל מאן דבעי")</label>
-          <input type="text" id="recipient_name" placeholder='למשל: עו"ד יוסי כהן' />
-        </div>
-        <div class="field">
-          <label>תפקיד / תואר הנמען</label>
-          <input type="text" id="recipient_title" placeholder="למשל: מנכ״ל משרד הבריאות" />
-        </div>
-      </div>
+      <h2><span class="icon">👤</span> נמענים</h2>
+      <div id="recipientsContainer"></div>
+      <button class="btn btn-add" onclick="addRecipient()">+ הוסף נמען</button>
     </div>
 
     <!-- Section: Letter content -->
@@ -696,6 +711,7 @@
 <div class="action-bar">
   <button class="btn btn-ghost" onclick="previewPDF()">👁️ תצוגה מקדימה</button>
   <button class="btn btn-primary" onclick="generateWord()">📝 ייצא Word</button>
+  <button class="btn btn-gdrive" id="btn-gdrive-bar" onclick="exportToDrive()">📂 ייצא לגוגל דרייב</button>
   <button class="btn btn-secondary" onclick="generatePDF()">📄 ייצא PDF</button>
   <button class="btn btn-outline install-only" data-action="install-app">⬇️ התקן</button>
   <button class="btn btn-outline" onclick="openSaveModal()">💾 שמור טיוטה</button>
@@ -761,6 +777,20 @@
   function collectData(name) {
     const v = id => document.getElementById(id)?.value.trim() ?? '';
 
+    // Recipients
+    const recipients = [];
+    document.querySelectorAll('.recipient-row').forEach(row => {
+      const intro = row.querySelector('[data-role="recipient-intro"]')?.value.trim() ?? '';
+      const name = row.querySelector('[data-role="recipient-name"]')?.value.trim() ?? '';
+      const title = row.querySelector('[data-role="recipient-title"]')?.value.trim() ?? '';
+      if (name || title) {
+        recipients.push({ intro, name, title });
+      }
+    });
+    if (!recipients.length) {
+      recipients.push({ intro: 'לכבוד', name: '', title: '' });
+    }
+
     // Signers
     const signers = [];
     document.querySelectorAll('.signer-row').forEach(row => {
@@ -782,9 +812,10 @@
       city:             v('city') || 'הכנסת, ירושלים',
       date_hebrew:      v('date_hebrew'),
       date_gregorian:   v('date_gregorian'),
-      recipient_intro:  v('recipient_intro') || 'לכבוד',
-      recipient_name:   v('recipient_name'),
-      recipient_title:  v('recipient_title'),
+      recipient_intro:  recipients[0].intro || 'לכבוד',
+      recipient_name:   recipients[0].name,
+      recipient_title:  recipients[0].title,
+      recipients,
       greeting:         v('greeting') || 'שלום רב,',
       subject:          v('subject'),
       body:             document.getElementById('body')?.value ?? '',
@@ -807,9 +838,6 @@
     set('city',            data.city || 'הכנסת, ירושלים');
     set('date_hebrew',     data.date_hebrew);
     set('date_gregorian',  data.date_gregorian);
-    set('recipient_intro', data.recipient_intro || 'לכבוד');
-    set('recipient_name',  data.recipient_name);
-    set('recipient_title', data.recipient_title);
     set('greeting',        data.greeting || 'שלום רב,');
     set('subject',         data.subject);
     set('body',            data.body);
@@ -819,6 +847,13 @@
     const compare = document.getElementById('compare_layout');
     if (compare) compare.checked = !!data.compare_layout;
 
+    // Recipients
+    clearRecipients();
+    const recipients = data.recipients?.length ? data.recipients : [
+      { intro: data.recipient_intro || 'לכבוד', name: data.recipient_name || '', title: data.recipient_title || '' }
+    ];
+    recipients.forEach(r => addRecipient(r.intro, r.name, r.title));
+
     // Signers
     clearSigners();
     const signers = data.signers?.length ? data.signers : [{ name: '', title: '' }];
@@ -827,6 +862,50 @@
     // CC
     clearCC();
     (data.cc || []).forEach(c => addCC(c));
+  }
+
+  // ── Recipients ────────────────────────────────────────
+  let recipientCount = 0;
+
+  function clearRecipients() {
+    document.getElementById('recipientsContainer').innerHTML = '';
+    recipientCount = 0;
+  }
+
+  function addRecipient(intro = 'לכבוד', name = '', title = '') {
+    const idx = ++recipientCount;
+    const cont = document.getElementById('recipientsContainer');
+    const row = document.createElement('div');
+    row.className = 'recipient-row';
+    row.id = `recipient_${idx}`;
+    row.innerHTML = `
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <label style="font-size:12px;color:var(--muted)">פתיח</label>
+        <input type="text" data-role="recipient-intro"
+               placeholder="למשל: לכבוד" value="${_esc(intro)}" />
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <label style="font-size:12px;color:var(--muted)">שם הנמען</label>
+        <input type="text" data-role="recipient-name"
+               placeholder="למשל: מר בצלאל סמוטריץ'" value="${_esc(name)}" />
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <label style="font-size:12px;color:var(--muted)">תפקיד / תואר</label>
+        <input type="text" data-role="recipient-title"
+               placeholder="למשל: שר האוצר" value="${_esc(title)}" />
+      </div>
+      <button class="btn btn-danger btn-sm" style="margin-top:18px"
+              onclick="removeRecipient(${idx})">✕</button>`;
+    cont.appendChild(row);
+  }
+
+  function removeRecipient(idx) {
+    const row = document.getElementById(`recipient_${idx}`);
+    if (row) {
+      const all = document.querySelectorAll('.recipient-row');
+      if (all.length <= 1) { toast('חייב להיות לפחות נמען אחד', 'error'); return; }
+      row.remove();
+    }
   }
 
   // ── Signers ───────────────────────────────────────────
@@ -999,6 +1078,82 @@
       toast(`❌ שגיאה: ${e.message}`, 'error');
     } finally {
       hideLoading();
+    }
+  }
+
+  // ── Export to Google Drive ────────────────────────────
+  let _gdrivePendingId = null;
+
+  function _setGdriveLoading(loading) {
+    ['btn-gdrive-header', 'btn-gdrive-bar'].forEach(id => {
+      const b = document.getElementById(id);
+      if (!b) return;
+      b.disabled = loading;
+      if (loading) { b.dataset.orig = b.textContent; b.textContent = '⏳ מעלה...'; }
+      else          { b.textContent = b.dataset.orig || '📂 ייצא לגוגל דרייב'; }
+    });
+  }
+
+  async function exportToDrive() {
+    const data = collectData();
+    if (!data.subject.trim()) {
+      toast('נא להזין שורת נדון לפני הייצוא', 'error');
+      return;
+    }
+    _setGdriveLoading(true);
+    try {
+      const res = await fetch('/api/export-to-drive', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+
+      if (!res.ok) {
+        if (json.error === 'setup_required') {
+          toast('❌ ' + json.message, 'error');
+        } else {
+          toast('❌ ' + (json.error || `שגיאת שרת (${res.status})`), 'error');
+        }
+        return;
+      }
+
+      if (json.needs_auth) {
+        _gdrivePendingId = json.pending_id;
+        window.addEventListener('message', _onGoogleAuthDone, { once: true });
+        window.open(json.auth_url, '_blank', 'width=600,height=700');
+        toast('🔑 נא לאשר גישה לגוגל דרייב בחלון שנפתח', '');
+        return;
+      }
+
+      window.open(json.url, '_blank');
+      toast('✅ הקובץ הועלה לגוגל דרייב!', 'success');
+    } catch (e) {
+      toast('❌ שגיאה: ' + e.message, 'error');
+    } finally {
+      _setGdriveLoading(false);
+    }
+  }
+
+  async function _onGoogleAuthDone(event) {
+    if (!event.data || event.data.google_auth !== 'done') return;
+    if (!_gdrivePendingId) return;
+    const pendingId = _gdrivePendingId;
+    _gdrivePendingId = null;
+    _setGdriveLoading(true);
+    try {
+      const res = await fetch(`/api/export-to-drive/pending/${pendingId}`, { method: 'POST' });
+      const json = await res.json();
+      if (!res.ok || !json.url) {
+        toast('❌ ' + (json.error || 'שגיאה בהעלאה'), 'error');
+        return;
+      }
+      window.open(json.url, '_blank');
+      toast('✅ הקובץ הועלה לגוגל דרייב!', 'success');
+    } catch (e) {
+      toast('❌ שגיאה: ' + e.message, 'error');
+    } finally {
+      _setGdriveLoading(false);
     }
   }
 
@@ -1192,9 +1347,6 @@
     document.getElementById('city').value           = 'הכנסת, ירושלים';
     document.getElementById('date_hebrew').value    = getTodayHebrewDate();
     document.getElementById('date_gregorian').value = getTodayGregorianDate();
-    document.getElementById('recipient_intro').value = 'לכבוד';
-    document.getElementById('recipient_name').value  = '';
-    document.getElementById('recipient_title').value = '';
     document.getElementById('greeting').value        = 'שלום רב,';
     document.getElementById('subject').value         = '';
     document.getElementById('body').value            = '';
@@ -1202,6 +1354,8 @@
     document.getElementById('note').value            = '';
     document.getElementById('pdf_profile').value     = appCapabilities?.default_profile || 'auto';
     document.getElementById('compare_layout').checked = !!appCapabilities?.comparison?.enabled_by_default;
+    clearRecipients();
+    addRecipient('לכבוד', '', '');
     clearSigners();
     addSigner('חה"כ יונתן משריקי', 'יו"ר ועדת הבריאות');
     clearCC();
@@ -1279,6 +1433,7 @@
 
   // ── Init ──────────────────────────────────────────────
   (function init() {
+    addRecipient('לכבוד', '', '');
     addSigner('חה"כ יונתן משריקי', 'יו"ר ועדת הבריאות');
     loadDraftList();
     loadCapabilities();

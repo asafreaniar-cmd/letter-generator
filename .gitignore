@@ -22,3 +22,7 @@ instance/**/*.docx
 # IDE
 .vscode/
 *.code-workspace
+
+# Credentials
+credentials.json
+token.json

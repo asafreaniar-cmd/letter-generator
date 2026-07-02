@@ -1,0 +1,1609 @@
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.27.201:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 10:37:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:37:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:37:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:37:52] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:37:54] "GET /sw.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:37:54] "GET /api/drafts HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.27.201:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 10:38:11] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:38:11] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:38:11] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:38:12] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:38:13] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:38:17] "[31m[1mPOST /api/export-to-drive HTTP/1.1[0m" 400 -
+127.0.0.1 - - [02/Jun/2026 10:38:26] "[31m[1mPOST /api/export-to-drive HTTP/1.1[0m" 400 -
+127.0.0.1 - - [02/Jun/2026 10:39:17] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:39:17] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:39:17] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:39:19] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:39:23] code 400, message Bad request version (',tºÔ\x87Ð\x18ÕmªyÔEÚ\x94ÖäÕÄ')
+127.0.0.1 - - [02/Jun/2026 10:39:23] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x85½­\x15¯ûÚ¶®°Y\x09§¦µ\x9eÐmÿ!í1\x12&¯Ò«?Ñ?\x03\x9e ,tºÔ\x87Ð\x18ÕmªyÔEÚ\x94ÖäÕÄ\x0b[0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [02/Jun/2026 10:39:23] code 400, message Bad request version ('{X¹öÍsó¹\\³·\x9f\x00,\x9a\x9a\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À')
+127.0.0.1 - - [02/Jun/2026 10:39:23] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x9e\x8bMséÇö 63%Õ\x01\x12\x184åÉI\x06ÂØß\x14ke\x90\x14\x81¤à\x0b \x86êa\x8d%Ôè%òå-ÂU\x9d\x81±Ð\x94ì\x0d{X¹öÍsó¹\\³·\x9f\x00,\x9a\x9a\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À[0m" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [02/Jun/2026 10:39:23] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x8f\x01\x00\x00\x8b\x03\x01Ü¤¦\x99§\x03\x03iÛ\x93\x80,@ZË\x7f£\x05\x87ó¸aØ\x068%\x15\x01+³')
+127.0.0.1 - - [02/Jun/2026 10:39:23] "[35m[1m\x16\x03\x01\x00\x8f\x01\x00\x00\x8b\x03\x01Ü¤¦\x99§\x03\x03iÛ\x93\x80,@ZË\x7f£\x05\x87ó¸aØ\x068%\x15\x01+³ \x18\x00\x00\x14À[0m" HTTPStatus.BAD_REQUEST -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+127.0.0.1 - - [02/Jun/2026 10:39:53] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:40:45] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:40:45] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:40:45] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:40:47] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:40:47] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:40:49] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:41:33] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:41:34] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:45:00] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:45:00] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:45:00] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:45:02] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:45:03] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:45:04] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:45:18] "[35m[1mGET /api/google-auth/callback?state=dwYMOSKKDQ8qAgzPvFjrDtbXjjLQYm&iss=https://accounts.google.com&code=4/0AeoWuM9lbLjerQD6YV5OHoWovLqLCIaC4BwxMLz8xURVZhdVLtjnCNixAxIxvJQIa_KBfQ&scope=https://www.googleapis.com/auth/drive.file HTTP/1.1[0m" 500 -
+127.0.0.1 - - [02/Jun/2026 10:45:19] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:45:22] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:45:34] "[35m[1mGET /api/google-auth/callback?state=sdYBtEv8PcHihP7ndUDf13k8KDt9I4&iss=https://accounts.google.com&code=4/0AeoWuM8dYJ5SYK-ZECmjw14NUThj9eP7qwQK9JQibWj5EtBwMPFVqXSoTjbqcyZuOIrgbQ&scope=https://www.googleapis.com/auth/drive.file HTTP/1.1[0m" 500 -
+127.0.0.1 - - [02/Jun/2026 10:45:35] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:45:44] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:46:59] "[35m[1mGET /api/google-auth/callback?state=lE8zfHb4TfqDzJjsJluF6771W7rf9s&iss=https://accounts.google.com&code=4/0AeoWuM-lmHtWGljn0Wci1q9zJ7hve7wCKCP_D7BeZaFqx4YDuMOvpOVoymkkL6fpf7fmfg&scope=https://www.googleapis.com/auth/drive.file HTTP/1.1[0m" 500 -
+127.0.0.1 - - [02/Jun/2026 10:47:01] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:47:14] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:47:31] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:47:40] "[35m[1mGET /api/google-auth/callback?state=EKGsCCrupLYL0qIYiLzO0gaxfbcKtN&iss=https://accounts.google.com&code=4/0AeoWuM8TsnqMEOc3TH49qG8VgSz-SXsUs8NquGLyhPH9kaU3yDDxEokUHHbukk8WOWPfdw&scope=https://www.googleapis.com/auth/drive.file HTTP/1.1[0m" 500 -
+127.0.0.1 - - [02/Jun/2026 10:47:41] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:47:51] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:48:00] "[35m[1mGET /api/google-auth/callback?state=KWFtx53vramkbkG3naQyLkMNPM6JJB&iss=https://accounts.google.com&code=4/0AeoWuM8GYr7ReUQx8gW5EU2sNPlhqKHGrW9jmh6OTrfNhOWrfWN-az1LW8LwaB4oj63W6g&scope=https://www.googleapis.com/auth/drive.file HTTP/1.1[0m" 500 -
+127.0.0.1 - - [02/Jun/2026 10:48:01] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/app.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.27.201:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 10:49:54] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:50:05] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:50:05] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:50:05] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:50:07] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:50:07] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+127.0.0.1 - - [02/Jun/2026 10:50:08] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:50:17] "GET /api/google-auth/callback?state=yYHEbqDwP0jmvN04EgRjK4Ilf2s8VX&iss=https://accounts.google.com&code=4/0AeoWuM9aqcTvTRY5WNdPnyn-SXqvs0et4rri9Gbmjuh04ULK6wwOdAMabZ78S0YRf9Ni6w&scope=https://www.googleapis.com/auth/drive.file HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:50:17] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 10:50:19] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 10:50:20] "POST /api/export-to-drive/pending/6bd20368-6735-4cfc-ae9c-897302df4d43 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:50:31] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:50:48] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:50:54] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:55:27] "POST /api/export-to-drive HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/app.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/app.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.27.201:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [00:36<?, ?it/s]
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [00:22<?, ?it/s]
+127.0.0.1 - - [02/Jun/2026 11:03:58] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:03:58] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:03:58] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:04:00] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:04:04] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+  0%|          | 0/1 [00:00<?, ?it/s]{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+
+  0%|          | 0/1 [00:00<?, ?it/s][A  0%|          | 0/1 [00:03<?, ?it/s]
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+  0%|          | 0/1 [00:00<?, ?it/s]127.0.0.1 - - [02/Jun/2026 11:05:31] "GET /api/health HTTP/1.1" 200 -
+  0%|          | 0/1 [01:55<?, ?it/s]
+  0%|          | 0/1 [01:44<?, ?it/s]
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+  0%|          | 0/1 [00:00<?, ?it/s]{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+
+  0%|          | 0/1 [00:00<?, ?it/s][A * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/app.py', reloading
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+  0%|          | 0/1 [01:06<?, ?it/s]
+  0%|          | 0/1 [00:59<?, ?it/s]
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.27.201:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 11:14:43] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:14:43] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:14:43] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:14:45] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:14:45] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 11:14:48] "POST /api/export-to-drive HTTP/1.1" 200 -
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [00:04<?, ?it/s]
+127.0.0.1 - - [02/Jun/2026 11:23:26] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:23:26] "GET /api/download/ניסוי_20260602_112326.docx HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:23:41] "POST /api/export-to-drive HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.27.201:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 11:28:32] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:28:32] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:28:32] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:28:34] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:28:49] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 11:28:52] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:30:20] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:30:20] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:30:20] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:30:21] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:30:22] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:30:24] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:30:48] "POST /api/export-to-drive HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.27.201:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 11:32:31] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:33:12] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:33:12] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:33:12] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:33:14] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 11:33:14] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:33:19] "POST /api/export-to-drive HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 18:52:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:52:11] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:52:11] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:52:12] "GET /sw.js HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:52:13] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+127.0.0.1 - - [02/Jun/2026 18:52:15] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:52:26] "GET /api/google-auth/callback?state=cqQKATxv8uf142uwu06c2zsTsPElui&iss=https://accounts.google.com&code=4/0AeoWuM8gLx51VKP7v890wTK6XUX1h7_4mAa0jaJegEU0ZKY8OOBH2Ahuo-oGnVtO5jDf6g&scope=https://www.googleapis.com/auth/drive HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 18:52:28] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 18:52:30] "POST /api/export-to-drive/pending/06a3d3f4-0840-4efc-8ec9-1bd0d50d6911 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:52:35] "POST /api/export-to-drive HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 18:53:35] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 18:53:35] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:53:35] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:53:36] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 18:54:16] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:59:18] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 18:59:19] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:59:19] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:59:20] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 18:59:27] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:59:28] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:59:28] "GET /api/download/ניסוי_20260602_185928.docx HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/gdrive_service.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 19:01:01] "POST /api/export-to-drive HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 19:02:23] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 19:02:23] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:02:23] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:02:24] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:02:24] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 19:02:32] "POST /api/export-to-drive HTTP/1.1" 200 -
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+  0%|          | 0/1 [00:00<?, ?it/s]127.0.0.1 - - [02/Jun/2026 19:05:14] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+
+  0%|          | 0/1 [00:00<?, ?it/s][A  0%|          | 0/1 [00:01<?, ?it/s]
+  0%|          | 0/1 [00:16<?, ?it/s]
+127.0.0.1 - - [02/Jun/2026 19:05:20] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:05:27] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:05:27] "GET /api/download/ניסוי_20260602_190527.docx HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_service.py', reloading
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+[2026-06-02 19:11:27,949] ERROR in app: שגיאה בהמרת PDF
+Traceback (most recent call last):
+  File "/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/app.py", line 128, in generate_pdf
+    result = convert_docx_to_pdf(
+  File "/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_service.py", line 607, in convert_docx_to_pdf
+    raise PDFServiceError(message, status_code=503)
+pdf_service.PDFServiceError: gotenberg: לא זמין ; libreoffice: לא זמין
+127.0.0.1 - - [02/Jun/2026 19:11:27] "[35m[1mPOST /api/generate-pdf HTTP/1.1[0m" 503 -
+127.0.0.1 - - [02/Jun/2026 19:12:00] "GET /api/health HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/app.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 19:13:33] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:13:40] "POST /api/generate-pdf HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 19:55:08] "GET /api/health HTTP/1.1" 200 -
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [01:17<?, ?it/s]
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+  0%|          | 0/1 [00:00<?, ?it/s]  0%|          | 0/1 [02:28<?, ?it/s]
+127.0.0.1 - - [02/Jun/2026 19:59:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:59:07] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:59:07] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:59:08] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:59:09] "GET /sw.js HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 19:59:18] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 19:59:29] "POST /api/export-to-drive HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_service.py', reloading
+{'input': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/input.docx', 'output': '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/instance/word-work/output.pdf', 'result': 'error', 'error': 'Error: ההודעה לא הובנה.'}
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/app.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 20:15:33] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:15:50] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:16:38] "GET /api/health HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/app.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 21:01:18] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:01:25] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:01:31] "GET /api/download/מכתב%20בדיקה%20משרת%20LaunchAgent_20260602_210125.pdf HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jun/2026 21:08:36] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 21:08:36] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:08:36] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:08:37] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:08:38] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 21:08:39] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:08:39] "GET /api/download/ניסוי_20260602_210838.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:11:12] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:11:12] "GET /api/download/כללי_20260602_211111.pdf HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jun/2026 21:11:40] "POST /api/export-to-drive HTTP/1.1" 200 -
+172.20.10.3 - - [02/Jun/2026 21:12:37] code 400, message Bad request version ('T\x8a0\x89ù¶\x17ª;cyßk\x91\x00*::\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À')
+172.20.10.3 - - [02/Jun/2026 21:12:37] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03­Ö;êÀ\x9e\x97ÜPfû!þM\x17¼­\x8fï|dD+¯cì\x1d\x886¦Òa \x9b\x14@¶/S-\x95VµVÀ1É\x15;}\x1fT\x8a0\x89ù¶\x17ª;cyßk\x91\x00*::\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À[0m" HTTPStatus.BAD_REQUEST -
+172.20.10.3 - - [02/Jun/2026 21:12:37] code 400, message Bad request version ('\x00,zz\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À')
+172.20.10.3 - - [02/Jun/2026 21:12:37] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x036PP\x84ª²YF\x1cbøWÞÚ5\x98µtd¾³Bèµ¹\x9bFÂ\x00e3\x8b åØ\x90F¶ßHëc}¹w\x1e\x8a\x9e\x9eTEý\x16â¸\x98á\x08/mPp-f\x1c\x00,zz\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À[0m" HTTPStatus.BAD_REQUEST -
+172.20.10.3 - - [02/Jun/2026 21:12:37] code 400, message Bad request version ('\x04NÂ\x16Jÿ\x833L\x00\x00\x14À')
+172.20.10.3 - - [02/Jun/2026 21:12:37] "[35m[1m\x16\x03\x01\x00}\x01\x00\x00y\x03\x01J­¾ØEJ\x88\x1dä\x01ÉÊîq \x030\x8d\x07ì\x0e>\x1f\x04NÂ\x16Jÿ\x833L\x00\x00\x14À[0m" HTTPStatus.BAD_REQUEST -
+172.20.10.1 - - [02/Jun/2026 21:15:03] "GET / HTTP/1.1" 200 -
+172.20.10.1 - - [02/Jun/2026 21:15:03] "GET /manifest.webmanifest HTTP/1.1" 200 -
+172.20.10.1 - - [02/Jun/2026 21:15:03] "GET /api/health HTTP/1.1" 200 -
+172.20.10.1 - - [02/Jun/2026 21:15:03] "GET /api/drafts HTTP/1.1" 200 -
+172.20.10.1 - - [02/Jun/2026 21:15:37] "POST /api/generate-pdf HTTP/1.1" 200 -
+172.20.10.1 - - [02/Jun/2026 21:15:37] "GET /api/download/ניסוי_20260602_211537.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:27:45] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 22:27:45] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:27:45] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:27:47] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jun/2026 22:27:50] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:27:52] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:27:52] "GET /api/download/ניסוי_20260602_222751.pdf HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.26.121:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.26.121:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.26.121:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.26.121:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.26.121:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [03/Jun/2026 16:55:27] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [03/Jun/2026 16:55:27] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 16:55:28] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 16:55:29] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [03/Jun/2026 20:22:54] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [03/Jun/2026 20:22:54] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 20:22:54] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 20:22:55] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 20:22:56] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [03/Jun/2026 20:23:01] "POST /api/export-to-drive HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.1.187:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [04/Jun/2026 22:08:23] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Jun/2026 22:08:23] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [04/Jun/2026 22:08:24] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [04/Jun/2026 22:08:25] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [04/Jun/2026 22:08:25] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [04/Jun/2026 22:08:29] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [04/Jun/2026 22:08:29] "GET /api/download/ניסוי_20260604_220829.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [04/Jun/2026 22:09:00] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [05/Jun/2026 16:29:16] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Jun/2026 16:29:16] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2026 16:29:19] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2026 16:29:20] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [05/Jun/2026 16:34:04] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2026 16:34:04] "GET /api/download/דרישה%20לעצירת%20שינוי%20סמל%20העיר%20ראש%20העין_20260605_163404.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2026 16:34:45] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [05/Jun/2026 16:34:45] "GET /api/download/דרישה%20לעצירת%20שינוי%20סמל%20העיר%20ראש%20העין_20260605_163445.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2026 23:06:28] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2026 23:06:28] "GET /api/download/דרישה%20לעצירת%20שינוי%20סמל%20העיר%20ראש%20העין_20260606_230628.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2026 23:06:59] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [06/Jun/2026 23:08:31] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2026 23:08:31] "GET /api/download/דרישה%20לעצירת%20שינוי%20סמל%20העיר%20ראש%20העין_20260606_230831.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2026 23:14:36] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [06/Jun/2026 23:14:36] "GET /api/download/דרישה%20לעצירת%20שינוי%20סמל%20העיר%20ראש%20העין_20260606_231436.pdf HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [06/Jun/2026 23:14:57] "POST /api/export-to-drive HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.2.163:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [07/Jun/2026 16:15:19] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [07/Jun/2026 16:15:19] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [07/Jun/2026 16:15:20] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [07/Jun/2026 16:15:22] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+ * Detected change in '/Users/user/Library/Python/3.9/lib/python/site-packages/google/protobuf/duration.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.4.91:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.10.220:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [11/Jun/2026 10:45:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [11/Jun/2026 10:45:39] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [11/Jun/2026 10:45:39] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [11/Jun/2026 10:45:40] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [11/Jun/2026 10:46:10] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [11/Jun/2026 10:50:36] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [11/Jun/2026 10:50:36] "GET /api/download/בקשה%20לאישור%20ביקור%20אסירים%20בבית%20סוהר%20מעשיה_20260611_105036.docx HTTP/1.1" 200 -
+127.0.0.1 - - [11/Jun/2026 10:51:05] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [11/Jun/2026 10:51:05] "GET /api/download/בקשה%20לאישור%20ביקור%20אסירים%20בבית%20סוהר%20מעשיה_20260611_105105.docx HTTP/1.1" 200 -
+127.0.0.1 - - [11/Jun/2026 12:37:59] "[35m[1mPOST /api/drafts HTTP/1.1[0m" 201 -
+127.0.0.1 - - [11/Jun/2026 12:37:59] "GET /api/drafts HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.18.41:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.17.82:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [21/Jun/2026 15:30:23] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [22/Jun/2026 11:23:07] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [22/Jun/2026 11:23:07] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [22/Jun/2026 11:23:07] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [22/Jun/2026 11:23:09] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.28.200:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+Address already in use
+Port 8080 is in use by another program. Either identify and stop that program, or start the server with a different port.
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.28.112:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.28.112:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.0.164:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [30/Jun/2026 10:25:26] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [30/Jun/2026 10:25:27] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:25:27] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:25:28] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [30/Jun/2026 10:25:29] "GET /api/drafts/182383fe-b849-4a5a-ab0a-7080ce877aa9 HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:25:31] "GET /api/drafts/182383fe-b849-4a5a-ab0a-7080ce877aa9 HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:26:02] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [30/Jun/2026 10:34:25] "[35m[1mPOST /api/drafts HTTP/1.1[0m" 201 -
+127.0.0.1 - - [30/Jun/2026 10:34:25] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:36:36] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:36:36] "GET /api/download/אי-יישום%20חוק%20ביטוח%20בריאות%20ממלכתי%20-%20הנגשת_20260630_103636.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:39:03] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:39:03] "GET /api/download/אי-יישום%20חוק%20ביטוח%20בריאות%20ממלכתי%20-%20הנגשת_20260630_103903.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:39:19] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:39:19] "GET /api/download/אי-יישום%20חוק%20ביטוח%20בריאות%20ממלכתי%20-%20הנגשת_20260630_103919.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:39:28] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:39:28] "GET /api/download/אי-יישום%20חוק%20ביטוח%20בריאות%20ממלכתי%20-%20הנגשת_20260630_103928.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:39:40] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:39:40] "GET /api/download/אי-יישום%20חוק%20ביטוח%20בריאות%20ממלכתי%20-%20הנגשת_20260630_103940.pdf HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+127.0.0.1 - - [30/Jun/2026 10:42:07] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:42:18] "GET /api/google-auth/callback?state=NFA8fOANPVhW2CRC8Kx37pi9PT76FW&iss=https://accounts.google.com&code=4/0AdkVLPxeW6XQ7x_vD0HPhqp5iwAQPMe0vLZEkzlcjk6MtFa78Jrmy-JYt0tLSIBYHBkcRw&scope=https://www.googleapis.com/auth/drive HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:42:18] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [30/Jun/2026 10:42:20] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [30/Jun/2026 10:42:21] "POST /api/export-to-drive/pending/086402c1-d3da-4141-b0a0-2be66ed8d55c HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:42:33] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:46:54] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 10:46:54] "GET /api/download/אי-יישום%20חוק%20ביטוח%20בריאות%20ממלכתי%20-%20הנגשת_20260630_104654.docx HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/letter_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [30/Jun/2026 11:14:52] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [30/Jun/2026 11:14:52] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 11:14:52] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 11:14:53] "GET /api/drafts/2fae0329-3e4c-459b-bcde-38b56c33bafc HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 11:14:53] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [30/Jun/2026 11:14:54] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 11:14:54] "GET /api/download/אי-יישום%20חוק%20ביטוח%20בריאות%20ממלכתי%20-%20הנגשת_20260630_111454.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 11:15:19] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2026 11:15:19] "GET /api/download/אי-יישום%20חוק%20ביטוח%20בריאות%20ממלכתי%20-%20הנגשת_20260630_111519.pdf HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.3.2.81:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [01/Jul/2026 12:04:20] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [01/Jul/2026 12:04:20] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:04:20] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:04:21] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [01/Jul/2026 12:04:51] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [01/Jul/2026 12:06:04] "GET /api/drafts/2fae0329-3e4c-459b-bcde-38b56c33bafc HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:06:06] "GET /api/drafts/182383fe-b849-4a5a-ab0a-7080ce877aa9 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:06:11] "GET /api/drafts/2fae0329-3e4c-459b-bcde-38b56c33bafc HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:06:28] "GET /api/drafts/182383fe-b849-4a5a-ab0a-7080ce877aa9 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:06:29] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:06:29] "GET /api/drafts/182383fe-b849-4a5a-ab0a-7080ce877aa9 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:06:32] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:06:34] "GET /api/drafts/2fae0329-3e4c-459b-bcde-38b56c33bafc HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:16:27] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:16:27] "GET /api/download/הפעלת%20קו%20תחבורה%20ציבורית%20משכונה%20ו_%20בבאר%20ש_20260701_121627.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:16:43] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:16:43] "GET /api/download/הפעלת%20קו%20תחבורה%20ציבורית%20משכונה%20ו_%20בבאר%20ש_20260701_121643.docx HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:31:20] "POST /api/generate HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 12:31:20] "GET /api/download/הפעלת%20קו%20תחבורה%20ציבורית%20משכונה%20ו_%20בבאר%20ש_20260701_123119.docx HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:32:57] "[35m[1mPOST /api/drafts HTTP/1.1[0m" 201 -
+127.0.0.1 - - [01/Jul/2026 22:32:57] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:33:06] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:39:28] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:39:28] "GET /api/download/דרישה%20לביטול%20מיידי%20של%20הצו%20האוסר%20את%20קיום%20_20260701_223928.pdf HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [01/Jul/2026 22:44:53] "POST /api/export-to-drive HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/letter_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/letter_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [01/Jul/2026 22:49:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:49:45] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:49:45] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:49:47] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [01/Jul/2026 22:49:54] "GET /api/drafts/7e10a3e2-87b8-4f89-8ab9-d517009d811d HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:49:57] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:49:59] "GET /api/drafts/2fae0329-3e4c-459b-bcde-38b56c33bafc HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:49:59] "GET /api/drafts/222913d9-bb57-47ff-b993-de80e0d067d2 HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:51:19] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:51:19] "GET /api/download/דרישה%20לביטול%20מיידי%20של%20הצו%20האוסר%20את%20קיום%20_20260701_225119.pdf HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/letter_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/letter_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [01/Jul/2026 22:53:26] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:53:26] "GET /api/download/דרישה%20לביטול%20מיידי%20של%20הצו%20האוסר%20את%20קיום%20_20260701_225326.pdf HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [01/Jul/2026 22:55:40] "[35m[1mPOST /api/drafts HTTP/1.1[0m" 201 -
+127.0.0.1 - - [01/Jul/2026 22:55:40] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:55:43] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [01/Jul/2026 22:55:43] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:55:43] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:55:45] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [01/Jul/2026 22:55:47] "GET /api/drafts/05eebeb2-2781-4c54-8b32-c8396111213a HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:56:08] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [01/Jul/2026 22:56:08] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:56:08] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:56:09] "GET /api/drafts/05eebeb2-2781-4c54-8b32-c8396111213a HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:56:09] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [01/Jul/2026 22:56:17] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:56:17] "GET /api/download/דרישה%20לביטול%20מיידי%20של%20הצו%20האוסר%20את%20קיום%20_20260701_225617.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:56:43] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 22:56:43] "GET /api/download/דרישה%20לביטול%20מיידי%20של%20הצו%20האוסר%20את%20קיום%20_20260701_225643.pdf HTTP/1.1" 200 -
+ * Detected change in '/Users/user/Desktop/כנסת/קלוד קוד/דשבורד מאסטר/מחולל מכתבים/letter-generator/pdf_builder.py', reloading
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [01/Jul/2026 22:58:30] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 23:01:34] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 23:01:34] "GET /api/download/דרישה%20לביטול%20מיידי%20של%20הצו%20האוסר%20את%20קיום%20_20260701_230133.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 23:40:59] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2026 23:40:59] "GET /api/download/דרישה%20לביטול%20מיידי%20של%20הצו%20השערורייתי%20האו_20260701_234059.pdf HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+172.20.10.3 - - [01/Jul/2026 23:43:46] code 400, message Bad request version ('Õ¿\x1a\x00*JJ\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À')
+172.20.10.3 - - [01/Jul/2026 23:43:46] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03K\x01ï\x8cM\x13Üis¦\x99Ò\x7f\x89ÍÍæ\x85&Ç&¼{q\x8d\x17ú<ÑÂFO "\x0c\x8em\\\x01's\x9f\x19\x09,\x02i\x93x\x02ûI\x17\x9f@G\x9eç|>P\x0dÕ¿\x1a\x00*JJ\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À[0m" HTTPStatus.BAD_REQUEST -
+172.20.10.3 - - [01/Jul/2026 23:43:46] code 400, message Bad request version ('\x9fç\xad\x03')
+172.20.10.3 - - [01/Jul/2026 23:43:46] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03X\x98\x10ªöJ¦C\x07î\x87H\x90K\x022[Ü5Ð\x07­Ózíw "G~¸` \x00Öä§\x01¬ÒK\x02Ó\x8feî6\x80#_><(Æ\x0b\x9fç­\x03[0m" HTTPStatus.BAD_REQUEST -
+172.20.10.3 - - [01/Jul/2026 23:43:46] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00}\x01\x00\x00y\x03\x01Â')
+172.20.10.3 - - [01/Jul/2026 23:43:46] "[35m[1m\x16\x03\x01\x00}\x01\x00\x00y\x03\x01Â\x1e°òÛµ¿°.goñøÉìpàýLý\x17v,ÁmÇ\x93\x10¼\x92\x18Z\x00\x00\x14À[0m" HTTPStatus.BAD_REQUEST -
+172.20.10.1 - - [01/Jul/2026 23:44:05] "GET / HTTP/1.1" 200 -
+172.20.10.1 - - [01/Jul/2026 23:44:06] "GET /manifest.webmanifest HTTP/1.1" 200 -
+172.20.10.1 - - [01/Jul/2026 23:44:06] "GET /api/drafts HTTP/1.1" 200 -
+172.20.10.1 - - [01/Jul/2026 23:44:06] "GET /api/health HTTP/1.1" 200 -
+172.20.10.1 - - [01/Jul/2026 23:44:06] "GET /icon-192.png HTTP/1.1" 200 -
+172.20.10.1 - - [01/Jul/2026 23:44:17] "GET /api/drafts/05eebeb2-2781-4c54-8b32-c8396111213a HTTP/1.1" 200 -
+/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/multiprocessing/resource_tracker.py:216: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+🏛️  מחולל מכתבים – פועל על http://0.0.0.0:8080
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.3:8080
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+/Users/user/Library/Python/3.9/lib/python/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+ * Debugger is active!
+ * Debugger PIN: 323-796-314
+127.0.0.1 - - [02/Jul/2026 10:22:52] "[36mGET / HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jul/2026 10:22:52] "GET /api/drafts HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jul/2026 10:22:52] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jul/2026 10:22:54] "[36mGET /sw.js HTTP/1.1[0m" 304 -
+127.0.0.1 - - [02/Jul/2026 13:41:23] "GET /api/drafts/05eebeb2-2781-4c54-8b32-c8396111213a HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jul/2026 13:42:32] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jul/2026 13:42:32] "GET /api/download/דרישה%20לביטול%20מיידי%20של%20הצו%20האוסר%20את%20קיום%20_20260702_134231.pdf HTTP/1.1" 200 -
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/oauth2/__init__.py:40: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/auth/__init__.py:54: FutureWarning: You are using a Python version 3.9 past its end of life. Google will update google-auth with critical bug fixes on a best-effort basis, but not with any other fixes or features. Please upgrade your Python version, and then update google-auth.
+  warnings.warn(eol_message.format("3.9"), FutureWarning)
+/Users/user/Library/Python/3.9/lib/python/site-packages/google/api_core/_python_version_support.py:242: FutureWarning: You are using a non-supported Python version (3.9.6). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.10, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+127.0.0.1 - - [02/Jul/2026 13:42:56] "POST /api/export-to-drive HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jul/2026 13:57:05] "POST /api/generate-pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jul/2026 13:57:05] "GET /api/download/דרישה%20לבחינה%20מחודשת%20ודחופה%20של%20הצו%20האוסר%20_20260702_135704.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jul/2026 13:57:19] "POST /api/export-to-drive HTTP/1.1" 200 -

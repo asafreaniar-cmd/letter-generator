@@ -1,0 +1,15 @@
+<Configuration>
+  <Add OfficeClientEdition="64" Channel="PerpetualVL2024">
+    <Product ID="ProPlus2024Volume" PIDKEY="PUT-YOUR-MAK-KEY-HERE">
+      <Language ID="he-il" />
+      <Language ID="en-us" />
+    </Product>
+    <Product ID="ProofingTools">
+      <Language ID="he-il" />
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+  <RemoveMSI />
+  <Display Level="None" AcceptEULA="TRUE" />
+  <Property Name="AUTOACTIVATE" Value="1" />
+</Configuration>

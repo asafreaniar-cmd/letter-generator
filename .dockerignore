@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+.git/
+.claude/
+drafts/
+output/
+instance/
+server-data/
