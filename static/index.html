@@ -648,6 +648,21 @@
                     placeholder="הקלד את גוף המכתב כאן...&#10;&#10;כל שורה ריקה תהפוך לפסקה חדשה."></textarea>
         </div>
         <div class="field">
+          <label>מרווח עליון לפני גוף המכתב (למכתבים קצרים)</label>
+          <select id="body_spacing">
+            <option value="auto">אוטומטי (ממורכז במרכז העמוד)</option>
+            <option value="0">ללא רווח (הצמד למעלה)</option>
+            <option value="1">מרווח של שורה 1</option>
+            <option value="2">מרווח של 2 שורות</option>
+            <option value="3">מרווח של 3 שורות</option>
+            <option value="4">מרווח של 4 שורות</option>
+            <option value="5">מרווח של 5 שורות</option>
+            <option value="6">מרווח של 6 שורות</option>
+            <option value="8">מרווח של 8 שורות</option>
+            <option value="10">מרווח של 10 שורות</option>
+          </select>
+        </div>
+        <div class="field">
           <label>שורת סיום / בקשה אופרטיבית</label>
           <input type="text" id="closing" value="בכבוד רב," />
         </div>
@@ -819,6 +834,7 @@
       greeting:         v('greeting') || 'שלום רב,',
       subject:          v('subject'),
       body:             document.getElementById('body')?.value ?? '',
+      body_spacing:     v('body_spacing') || 'auto',
       closing:          v('closing') || 'בכבוד רב,',
       signers,
       cc,
@@ -841,6 +857,7 @@
     set('greeting',        data.greeting || 'שלום רב,');
     set('subject',         data.subject);
     set('body',            data.body);
+    set('body_spacing',    data.body_spacing || 'auto');
     set('closing',         data.closing || 'בכבוד רב,');
     set('note',            data.note);
     set('pdf_profile',     data.pdf_profile || appCapabilities?.default_profile || 'auto');
@@ -1350,6 +1367,7 @@
     document.getElementById('greeting').value        = 'שלום רב,';
     document.getElementById('subject').value         = '';
     document.getElementById('body').value            = '';
+    document.getElementById('body_spacing').value    = 'auto';
     document.getElementById('closing').value         = 'בכבוד רב,';
     document.getElementById('note').value            = '';
     document.getElementById('pdf_profile').value     = appCapabilities?.default_profile || 'auto';

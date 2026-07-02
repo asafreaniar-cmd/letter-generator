@@ -582,6 +582,70 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
 
     # ── 5j. Body paragraphs ──────────────────────────────────────────────────
     body_text = (data.get('body') or '').strip()
+    
+    # Calculate spacing before body
+    spacing_val = data.get('body_spacing', 'auto')
+    padding_y = 0.0
+    if spacing_val == 'auto':
+        if body_text:
+            content_h = 0.0
+            # 1. Body paragraphs height
+            paras = [p.strip() for p in body_text.split('\n')]
+            for para in paras:
+                if not para:
+                    content_h += LINE_SINGLE
+                    continue
+                lines = _wrap_formatted(para)
+                content_h += len(lines) * LINE_SINGLE + LINE_BETWEEN_PARA
+                
+            # 2. Spacing before closing (1 line) + closing text + step after
+            content_h += LINE_SINGLE
+            closing_text = (data.get('closing') or 'בכבוד רב,').strip()
+            if closing_text:
+                lines = _wrap_formatted(closing_text)
+                content_h += len(lines) * LINE_SINGLE
+            content_h += LINE_SINGLE  # step() after closing
+            
+            # 3. Signers block height
+            signers = data.get('signers') or [{'name': '', 'title': ''}]
+            if len(signers) == 1:
+                s = signers[0]
+                name  = (s.get('name')  or '').strip()
+                title = (s.get('title') or '').strip()
+                if name:
+                    content_h += LINE_SINGLE + LINE_SINGLE
+                if title:
+                    content_h += LINE_SINGLE + LINE_SINGLE
+            else:
+                content_h += LINE_SINGLE * 2 + LINE_SINGLE * 2
+                
+            # 4. Spacing before CC + prefix & list
+            content_h += LINE_SINGLE
+            cc_list = [item for item in (data.get('cc') or []) if item.strip()]
+            if cc_list:
+                content_h += LINE_SINGLE
+                for item in cc_list:
+                    content_h += LINE_SINGLE
+                    
+            # 5. Spacing before note + Note
+            note_text = (data.get('note') or '').strip()
+            if note_text:
+                content_h += LINE_SINGLE * 2
+                
+            # Available height from current y to bottom margin (110.0 pt)
+            available_h = y - 110.0
+            if content_h < available_h:
+                padding_y = (available_h - content_h) / 2.0
+    else:
+        try:
+            lines_to_add = int(spacing_val)
+            padding_y = lines_to_add * LINE_SINGLE
+        except ValueError:
+            padding_y = 0.0
+            
+    # Apply vertical spacing
+    y -= padding_y
+
     if body_text:
         paras = body_text.split('\n')
         for pi, para in enumerate(paras):

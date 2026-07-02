@@ -491,6 +491,32 @@ def build_letter(data: dict, output_path: str) -> str:
 
     # ── 5j. Body paragraphs ──
     body_text = data.get('body', '').strip()
+    
+    # Apply vertical body spacing before drawing body
+    spacing_val = data.get('body_spacing', 'auto')
+    lines_to_add = 0
+    if spacing_val == 'auto':
+        if body_text:
+            body_len = len(body_text)
+            if body_len < 150:
+                lines_to_add = 5
+            elif body_len < 300:
+                lines_to_add = 4
+            elif body_len < 500:
+                lines_to_add = 3
+            elif body_len < 800:
+                lines_to_add = 2
+            elif body_len < 1200:
+                lines_to_add = 1
+    else:
+        try:
+            lines_to_add = int(spacing_val)
+        except ValueError:
+            lines_to_add = 0
+            
+    for _ in range(lines_to_add):
+        add(_make_p('', jc='both', line=240, rtl=True))
+
     if body_text:
         paragraphs = body_text.split('\n')
         for para_text in paragraphs:
