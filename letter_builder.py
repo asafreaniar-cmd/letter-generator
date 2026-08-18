@@ -243,39 +243,67 @@ def _make_recipients_table(recipients):
     from docx.oxml import OxmlElement
     tbl = OxmlElement('w:tbl')
 
+    # Fixed column width per recipient (dxa). Table width is the exact sum
+    # of the columns and layout is pinned to "fixed" — without this, some
+    # renderers (Google Docs' DOCX viewer in particular) re-autofit column
+    # widths from cell content once a title wraps to a second line, which
+    # desyncs the RTL column order and makes recipients visually overlap.
+    col_width_int = 2160
+    col_width = str(col_width_int)
+    table_width = str(col_width_int * len(recipients))
+
     # Table properties
     tblPr = OxmlElement('w:tblPr')
     tblStyle = OxmlElement('w:tblStyle')
     tblStyle.set(qn('w:val'), 'TableGrid')
     tblPr.append(tblStyle)
     tblW = OxmlElement('w:tblW')
-    tblW.set(qn('w:w'), '0')
-    tblW.set(qn('w:type'), 'auto')
+    tblW.set(qn('w:w'), table_width)
+    tblW.set(qn('w:type'), 'dxa')
     tblPr.append(tblW)
-    # No borders
+    tblLayout = OxmlElement('w:tblLayout')
+    tblLayout.set(qn('w:type'), 'fixed')
+    tblPr.append(tblLayout)
+    # No outer borders, but a thin vertical divider between recipient
+    # columns — without it, when one recipient's title wraps to more
+    # lines than its neighbours, the columns visually stagger and the
+    # unrelated title lines read as one jumbled block. A divider keeps
+    # each recipient legible as its own column regardless of wrap length.
     tblBorders = OxmlElement('w:tblBorders')
-    for side in ('top', 'left', 'bottom', 'right', 'insideH', 'insideV'):
+    for side in ('top', 'left', 'bottom', 'right', 'insideH'):
         b = OxmlElement(f'w:{side}')
         b.set(qn('w:val'), 'none')
         tblBorders.append(b)
+    insideV = OxmlElement('w:insideV')
+    insideV.set(qn('w:val'), 'single')
+    insideV.set(qn('w:sz'), '4')
+    insideV.set(qn('w:space'), '0')
+    insideV.set(qn('w:color'), 'BFBFBF')
+    tblBorders.append(insideV)
     tblPr.append(tblBorders)
-    # RTL table
-    bidiVisual = OxmlElement('w:bidiVisual')
-    tblPr.append(bidiVisual)
+    # Deliberately NOT using w:bidiVisual here. Google Docs' DOCX viewer
+    # mis-renders bidiVisual tables once a cell's paragraph wraps to a
+    # second line (long titles do) — the wrapped line escapes its column
+    # and overlaps the neighbouring cell. Word itself handles it fine, but
+    # since this table exists specifically for the Drive/Google-Docs
+    # export path, we build a plain LTR table instead: cells are placed in
+    # reverse order (last recipient first) so recipient 1 still lands on
+    # the visual right, while each paragraph keeps w:rtl for correct
+    # Hebrew text direction within the cell.
     tbl.append(tblPr)
 
-    # Grid columns – one per recipient (fixed width of 2160 dxa)
+    # Grid columns – one per recipient (fixed width)
     tblGrid = OxmlElement('w:tblGrid')
-    col_width = '2160'
     for _ in recipients:
         gridCol = OxmlElement('w:gridCol')
         gridCol.set(qn('w:w'), col_width)
         tblGrid.append(gridCol)
     tbl.append(tblGrid)
 
-    # Single row of recipients (intro + name + title stacked per cell)
+    # Single row of recipients (intro + name + title stacked per cell).
+    # Reversed so recipient 1 ends up in the rightmost (last) LTR column.
     tr = OxmlElement('w:tr')
-    for rec in recipients:
+    for rec in reversed(recipients):
         tc = OxmlElement('w:tc')
         tcPr = OxmlElement('w:tcPr')
         tcW = OxmlElement('w:tcW')
@@ -315,39 +343,53 @@ def _make_signers_table(signers):
     from docx.oxml import OxmlElement
     tbl = OxmlElement('w:tbl')
 
+    col_width_int = 9000 // len(signers)  # divide ~15cm evenly
+    col_width = str(col_width_int)
+    table_width = str(col_width_int * len(signers))
+
     # Table properties
     tblPr = OxmlElement('w:tblPr')
     tblStyle = OxmlElement('w:tblStyle')
     tblStyle.set(qn('w:val'), 'TableGrid')
     tblPr.append(tblStyle)
     tblW = OxmlElement('w:tblW')
-    tblW.set(qn('w:w'), '0')
-    tblW.set(qn('w:type'), 'auto')
+    tblW.set(qn('w:w'), table_width)
+    tblW.set(qn('w:type'), 'dxa')
     tblPr.append(tblW)
-    # No borders
+    tblLayout = OxmlElement('w:tblLayout')
+    tblLayout.set(qn('w:type'), 'fixed')
+    tblPr.append(tblLayout)
+    # No outer borders, thin vertical divider between signer columns —
+    # see _make_recipients_table for why (uneven wrap heights otherwise
+    # read as one jumbled block, especially in Google Docs' DOCX viewer).
     tblBorders = OxmlElement('w:tblBorders')
-    for side in ('top', 'left', 'bottom', 'right', 'insideH', 'insideV'):
+    for side in ('top', 'left', 'bottom', 'right', 'insideH'):
         b = OxmlElement(f'w:{side}')
         b.set(qn('w:val'), 'none')
         tblBorders.append(b)
+    insideV = OxmlElement('w:insideV')
+    insideV.set(qn('w:val'), 'single')
+    insideV.set(qn('w:sz'), '4')
+    insideV.set(qn('w:space'), '0')
+    insideV.set(qn('w:color'), 'BFBFBF')
+    tblBorders.append(insideV)
     tblPr.append(tblBorders)
-    # RTL table
-    bidiVisual = OxmlElement('w:bidiVisual')
-    tblPr.append(bidiVisual)
+    # Deliberately NOT using w:bidiVisual — see _make_recipients_table.
+    # Plain LTR table with cells in reverse order instead.
     tbl.append(tblPr)
 
     # Grid columns – one per signer
     tblGrid = OxmlElement('w:tblGrid')
-    col_width = str(9000 // len(signers))  # divide ~15cm evenly
     for _ in signers:
         gridCol = OxmlElement('w:gridCol')
         gridCol.set(qn('w:w'), col_width)
         tblGrid.append(gridCol)
     tbl.append(tblGrid)
 
-    # Single row of signers (name + title stacked per cell)
+    # Single row of signers (name + title stacked per cell), reversed so
+    # signer 1 ends up in the rightmost (last) LTR column.
     tr = OxmlElement('w:tr')
-    for signer in signers:
+    for signer in reversed(signers):
         tc = OxmlElement('w:tc')
         tcPr = OxmlElement('w:tcPr')
         tcW = OxmlElement('w:tcW')
