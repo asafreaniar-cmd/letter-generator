@@ -644,6 +644,11 @@
         </div>
         <div class="field">
           <label>גוף המכתב <small style="color:var(--muted)">(שורה ריקה = פסקה חדשה)</small></label>
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+            <button type="button" class="btn btn-ghost btn-sm" style="font-weight:800;" onclick="wrapSelection('body','**')" title="הדגשה (בולד)">B</button>
+            <button type="button" class="btn btn-ghost btn-sm" style="text-decoration:underline;" onclick="wrapSelection('body','__')" title="קו תחתון">U</button>
+            <small style="color:var(--muted)">סמן טקסט ולחץ, או הקלד ידנית: **מודגש** / __קו תחתון__</small>
+          </div>
           <textarea id="body" class="body-area"
                     placeholder="הקלד את גוף המכתב כאן...&#10;&#10;כל שורה ריקה תהפוך לפסקה חדשה."></textarea>
         </div>
@@ -882,6 +887,24 @@
   }
 
   // ── Recipients ────────────────────────────────────────
+  function wrapSelection(textareaId, marker) {
+    const ta = document.getElementById(textareaId);
+    if (!ta) return;
+    const start = ta.selectionStart;
+    const end = ta.selectionEnd;
+    const text = ta.value;
+    const selected = text.slice(start, end);
+    ta.value = text.slice(0, start) + marker + selected + marker + text.slice(end);
+    ta.focus();
+    if (selected) {
+      ta.selectionStart = start + marker.length;
+      ta.selectionEnd = start + marker.length + selected.length;
+    } else {
+      ta.selectionStart = ta.selectionEnd = start + marker.length;
+    }
+    ta.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
   let recipientCount = 0;
 
   function clearRecipients() {
