@@ -24,6 +24,7 @@ if env_file.exists():
             os.environ[k.strip()] = v.strip()
 
 from flask import Flask, abort, jsonify, request, send_file, send_from_directory
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from letter_builder import build_letter
 from pdf_service import PDFServiceError, convert_docx_to_pdf, get_pdf_capabilities
@@ -41,6 +42,11 @@ app = Flask(
     root_path=BASE_DIR,
     instance_path=os.path.join(BASE_DIR, 'instance'),
 )
+# Render (and similar PaaS) terminate HTTPS and forward plain HTTP to the
+# container. Without this, request.url_root reports "http://" behind the
+# proxy, which breaks the Google OAuth redirect_uri (Google requires an
+# exact https:// match for non-localhost clients).
+app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
 
 
 def _safe_subject(subject: str) -> str:
