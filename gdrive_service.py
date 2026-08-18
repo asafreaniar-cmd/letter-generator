@@ -12,15 +12,26 @@ Setup (one-time):
 """
 
 import os
+import shutil
 
 SCOPES = ['https://www.googleapis.com/auth/drive']
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CREDENTIALS_FILE = os.path.join(BASE_DIR, 'credentials.json')
 TOKEN_FILE = os.path.join(BASE_DIR, 'token.json')
+# Render "Secret Files" are mounted here at runtime, not inside the app dir.
+_RENDER_SECRET_CREDENTIALS = '/etc/secrets/credentials.json'
 # Target folder in user's Drive: "מכתבים - מחולל מכתבים"
 DRIVE_FOLDER_ID    = '1Y8sf_BTFGysOGQDdXO74Jey2-0Y1IR59'
 # Template file: "תבנית מכתב - ח״כ יונתן משריקי.docx"
 DRIVE_TEMPLATE_ID  = '1GV5b3-vdyCZ_vO_Y4QJC8b9u2NnlLZjg'
+
+
+def _ensure_credentials_from_render_secret():
+    if not os.path.exists(CREDENTIALS_FILE) and os.path.exists(_RENDER_SECRET_CREDENTIALS):
+        shutil.copyfile(_RENDER_SECRET_CREDENTIALS, CREDENTIALS_FILE)
+
+
+_ensure_credentials_from_render_secret()
 
 
 def has_client_secrets() -> bool:
