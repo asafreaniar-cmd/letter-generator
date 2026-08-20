@@ -352,6 +352,23 @@ def _draw_right(c: rl_canvas.Canvas, text: str, y: float, *,
         _draw_formatted_line_right(c, lines[0], y, right_x=right_x, size=size)
 
 
+def _draw_right_wrapped(c: rl_canvas.Canvas, text: str, y: float, *, max_w: float,
+                        bold: bool = False, underline: bool = False,
+                        size: float = FONT_SIZE, right_x: float = CONTENT_RIGHT) -> int:
+    """Like _draw_right, but wraps against `max_w` (a narrow column, not the
+    full page) and draws every resulting line instead of only the first.
+    Returns the number of lines actually drawn."""
+    if not text.strip():
+        return 0
+    lines = _wrap_formatted(text, max_w=max_w, bold_default=bold, underline_default=underline, size=size)
+    cur_y = y
+    for i, line_runs in enumerate(lines):
+        if i > 0:
+            cur_y -= LINE_SINGLE
+        _draw_formatted_line_right(c, line_runs, cur_y, right_x=right_x, size=size)
+    return len(lines)
+
+
 def _draw_left(c: rl_canvas.Canvas, text: str, y: float, *,
                bold: bool = False, underline: bool = False,
                size: float = FONT_SIZE, left_x: float = CONTENT_LEFT):
@@ -661,13 +678,8 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
     else:
         # Multiple recipients
         col_pitch = 108.0
-        max_lines = 0
-        for rec in recipients:
-            lines = 2
-            if rec.get('title', '').strip():
-                lines = 3
-            if lines > max_lines:
-                max_lines = lines
+        col_max_w = col_pitch - 8.0  # small gap so text doesn't touch the next column
+        rows_used = []
 
         for ri, rec in enumerate(recipients):
             col_right = CONTENT_RIGHT - ri * col_pitch
@@ -676,17 +688,25 @@ def build_letter_pdf(data: dict, output_path: str) -> str:
             title = rec.get('title', '').strip()
 
             cur_y = y
+            lines_so_far = 0
             if name:
                 _draw_right(c, intro, cur_y, right_x=col_right)
+                lines_so_far += 1
                 cur_y -= LINE_SINGLE
-                _draw_right(c, name, cur_y, right_x=col_right)
+                name_lines = _draw_right_wrapped(c, name, cur_y, max_w=col_max_w, right_x=col_right)
+                lines_so_far += name_lines
                 if title:
-                    cur_y -= LINE_SINGLE
-                    _draw_right(c, title, cur_y, underline=True, right_x=col_right)
+                    cur_y -= LINE_SINGLE * name_lines
+                    title_lines = _draw_right_wrapped(
+                        c, title, cur_y, max_w=col_max_w, underline=True, right_x=col_right
+                    )
+                    lines_so_far += title_lines
             else:
                 _draw_right(c, intro, cur_y, underline=True, right_x=col_right)
+                lines_so_far += 1
+            rows_used.append(lines_so_far)
 
-        for _ in range(max_lines):
+        for _ in range(max(rows_used) if rows_used else 2):
             step()
 
     # ── 5f. Empty line ───────────────────────────────────────────────────────
